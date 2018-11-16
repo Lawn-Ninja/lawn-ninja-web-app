@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
-import AllJobs from './Components/AllJobs'
+import React, { Component } from "react";
+import "./App.css";
+import AllJobs from "./Components/AllJobs";
+import NewUser from "./Components/NewUser";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
         <div className="App-header">
           <h1>Jobs </h1>
         </div>
+        <NewUser />
         <AllJobs />
       </div>
     );
