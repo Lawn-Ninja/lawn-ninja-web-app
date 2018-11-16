@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Job from "./Job";
 
 class AllJobs extends Component {
   constructor(props) {
@@ -25,9 +26,7 @@ class AllJobs extends Component {
         {this.state.jobs.map(job => {
           return (
             <div className="tile" key={job.id}>
-              <h4>User ID: {job.user_id}</h4>
-              <p>Requested Time: {job.requested_time}</p>
-              <p>Status: {job.status}</p>
+              <Job key={job.id} job={job} />
             </div>
           );
         })}
