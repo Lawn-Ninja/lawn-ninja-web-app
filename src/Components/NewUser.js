@@ -34,7 +34,6 @@ class NewUser extends Component {
     });
 
     const {
-      id,
       name,
       email,
       address,
@@ -81,18 +80,17 @@ class NewUser extends Component {
       return;
     }
 
-    const newUser = {
-      id,
-      name,
-      email,
-      address,
-      city,
-      state,
-      zip_code,
-      phone_number,
-      password,
-      password_confirmation
-    };
+    if (password === "") {
+      this.setState({ errors: { password: "Pasword is required" } });
+      return;
+    }
+
+    if (password_confirmation === "") {
+      this.setState({
+        errors: { password_confirmation: "Matching password is required" }
+      });
+      return;
+    }
 
     // dispatch({ type: "CREATE_USER", payload: newUser });
 

@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import classnames from "classnames";
-import axios from "axios";
 
 const TextInputGroup = ({
   label,
