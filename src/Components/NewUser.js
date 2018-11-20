@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Consumer } from "../context";
+// import { Consumer } from "../context";
 import TextInputGroup from "./TextInputGroup";
+import axios from "axios";
 
 class NewUser extends Component {
   state = {
@@ -16,8 +17,21 @@ class NewUser extends Component {
     errors: {}
   };
 
-  onSubmit = (dispatch, event) => {
+  onSubmit = event => {
     event.preventDefault();
+    axios.post("http://localhost:3001/users", {
+      user: {
+        name: this.state.name,
+        email: this.state.email,
+        address: this.state.address,
+        city: this.state.address,
+        state: this.state.state,
+        zip_code: this.state.zip_code,
+        phone_number: this.state.phone_number,
+        password: this.state.password,
+        password_confirmation: this.state.password_confirmation
+      }
+    });
 
     const {
       id,
@@ -80,7 +94,7 @@ class NewUser extends Component {
       password_confirmation
     };
 
-    dispatch({ type: "CREATE_USER", payload: newUser });
+    // dispatch({ type: "CREATE_USER", payload: newUser });
 
     this.setState({
       name: "",
@@ -113,100 +127,95 @@ class NewUser extends Component {
     } = this.state;
 
     return (
-      <Consumer>
-        {value => {
-          const { dispatch } = value;
-          return (
-            <div className="card mb-3">
-              <div className="card-header">Create User</div>
-              <div className="card-body">
-                <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-                  <TextInputGroup
-                    label="Name"
-                    name="name"
-                    placeholder="Enter Name"
-                    value={name}
-                    onChange={this.onChange}
-                    error={errors.name}
-                  />
-                  <TextInputGroup
-                    label="Address"
-                    name="address"
-                    placeholder="Enter Address"
-                    value={address}
-                    onChange={this.onChange}
-                    error={errors.address}
-                  />
-                  <TextInputGroup
-                    label="City"
-                    name="city"
-                    placeholder="Enter City"
-                    value={city}
-                    onChange={this.onChange}
-                    error={errors.city}
-                  />
-                  <TextInputGroup
-                    label="State"
-                    name="state"
-                    placeholder="Enter State"
-                    value={state}
-                    onChange={this.onChange}
-                    error={errors.state}
-                  />
-                  <TextInputGroup
-                    label="ZipCode"
-                    name="zip_code"
-                    placeholder="Enter Zip Code"
-                    value={zip_code}
-                    onChange={this.onChange}
-                    error={errors.zip_code}
-                  />
-                  <TextInputGroup
-                    label="PhoneNumber"
-                    name="phone_number"
-                    placeholder="Enter Phone Number"
-                    value={phone_number}
-                    onChange={this.onChange}
-                    error={errors.phone_number}
-                  />
-                  <TextInputGroup
-                    label="Email"
-                    name="email"
-                    type="email"
-                    placeholder="Enter Email"
-                    value={email}
-                    onChange={this.onChange}
-                    error={errors.email}
-                  />
-                  <TextInputGroup
-                    label="Password"
-                    name="password"
-                    type="password"
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={this.onChange}
-                    error={errors.password}
-                  />
-                  <TextInputGroup
-                    label="PasswordConfirmation"
-                    name="password_confirmation"
-                    type="password"
-                    placeholder="Confirm Password"
-                    value={password_confirmation}
-                    onChange={this.onChange}
-                    error={errors.password_confirmation}
-                  />
-                  <input
-                    type="submit"
-                    value="Create User"
-                    className="btn btn-light btn-block"
-                  />
-                </form>
-              </div>
-            </div>
-          );
-        }}
-      </Consumer>
+      <div className="card mb-3">
+        <div className="card-header">Create User</div>
+        <div className="card-body">
+          <form onSubmit={this.onSubmit.bind(this)}>
+            <TextInputGroup
+              label="Name"
+              name="name"
+              placeholder="Enter Name"
+              value={name}
+              onChange={this.onChange}
+              error={errors.name}
+            />
+            <TextInputGroup
+              label="Address"
+              name="address"
+              placeholder="Enter Address"
+              value={address}
+              onChange={this.onChange}
+              error={errors.address}
+            />
+            <TextInputGroup
+              label="City"
+              name="city"
+              placeholder="Enter City"
+              value={city}
+              onChange={this.onChange}
+              error={errors.city}
+            />
+            <TextInputGroup
+              label="State"
+              name="state"
+              placeholder="Enter State"
+              value={state}
+              onChange={this.onChange}
+              error={errors.state}
+            />
+            <TextInputGroup
+              label="ZipCode"
+              name="zip_code"
+              placeholder="Enter Zip Code"
+              value={zip_code}
+              onChange={this.onChange}
+              error={errors.zip_code}
+            />
+            <TextInputGroup
+              label="PhoneNumber"
+              name="phone_number"
+              placeholder="Enter Phone Number"
+              value={phone_number}
+              onChange={this.onChange}
+              error={errors.phone_number}
+            />
+            <TextInputGroup
+              label="Email"
+              name="email"
+              type="email"
+              placeholder="Enter Email"
+              value={email}
+              onChange={this.onChange}
+              error={errors.email}
+            />
+            <TextInputGroup
+              label="Password"
+              name="password"
+              type="password"
+              placeholder="Enter Password"
+              value={password}
+              onChange={this.onChange}
+              error={errors.password}
+            />
+            <TextInputGroup
+              label="PasswordConfirmation"
+              name="password_confirmation"
+              type="password"
+              placeholder="Confirm Password"
+              value={password_confirmation}
+              onChange={this.onChange}
+              error={errors.password_confirmation}
+            />
+            <input
+              type="submit"
+              value="Create User"
+              className="btn btn-light btn-block"
+            />
+          </form>
+        </div>
+      </div>
+
+      // </Consumer>
     );
   }
 
