@@ -17,10 +17,14 @@ class Login extends Component {
         password: this.state.password
       })
       .then(function(response) {
+<<<<<<< HEAD
         // console.log(response.data);
         localStorage.setItem('id_token', response.data.jwt);
         var currentToken = localStorage.getItem('id_token');
         console.log(currentToken);
+=======
+        console.log(response.data);
+>>>>>>> d31c93e5c75af8f3d87d712f3d1ef7f6874fb87e
       });
 
     const { email, password } = this.state;
