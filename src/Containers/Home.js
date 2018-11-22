@@ -4,6 +4,8 @@ import { Route, Link } from "react-router-dom";
 
 import "./Home.css";
 import LandingPage from "../Components/LandingPage";
+import Login from "../Components/Login"
+import NewUser from "../Components/NewUser"
 
 class Home extends Component {
     render () {
@@ -27,7 +29,9 @@ class Home extends Component {
                         </ul>
                     </nav>
                 </div>
-                <Route path="/" exact component={LandingPage} />
+                <Route path="/" exact component={ LandingPage } />
+                <Route path="/login" exact component={ Login } />
+                <Route path="/signup" exact component={ NewUser } />
             </div>
         );
     }
