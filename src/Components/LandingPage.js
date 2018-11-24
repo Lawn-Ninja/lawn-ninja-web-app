@@ -8,18 +8,28 @@ import "./LandingPage.css";
 const landingPage = (props) => {
   let userButtons = null;
   let providerButtons = null;
+  let consumerButtons = null;
 
   if (localStorage.getItem('id_token')) {
     userButtons = (
       <div>
         <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
-        <p><button>Post a Job</button></p>
       </div>
     )
 
-    if (props.provider) {
+    if (false) {
       providerButtons = (
-        <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
+        <div>
+          <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
+          <p><button>Become a Consumer</button></p>
+        </div>
+      )
+    } else {
+      consumerButtons = (
+        <div>
+          <p><button>Post a Job</button></p>
+          <p><button>Become a Provider</button></p>
+        </div>
       )
     }
 
@@ -40,6 +50,7 @@ const landingPage = (props) => {
       <span className="button-options">
         {userButtons}
         {providerButtons}
+        {consumerButtons}
       </span>
       <footer className="clear"></footer>
     </div>
