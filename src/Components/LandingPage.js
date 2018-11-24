@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import "../App.css"
-import "./LandingPage.css"
+
+import "../App.css";
+import "./LandingPage.css";
 
 const landingPage = (props) => {
   let userButtons = null;
@@ -10,23 +12,23 @@ const landingPage = (props) => {
   if (props.loggedIn) {
     userButtons = (
       <div>
-        <p><button>My Jobs</button></p>
+        <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
         <p><button>Post a Job</button></p>
       </div>
     )
 
     if (props.provider) {
       providerButtons = (
-        <p><button>Jobs Near Me</button></p>
+        <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
       )
     }
 
   } else {
     userButtons = (
       <div>
+        <p><button><Link to="/login" className="hover_link">Log In</Link></button></p>
+        <p><button><Link to="/signup" className="hover_link">Sign Up</Link></button></p>
         <p><button>Pricing & Info</button></p>
-        <p><button>Log In</button></p>
-        <p><button>Sign Up</button></p>
       </div>
     )
   }

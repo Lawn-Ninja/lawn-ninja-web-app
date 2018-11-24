@@ -22,9 +22,10 @@ class Login extends Component {
         localStorage.setItem('id_token', response.data.jwt);
         var currentToken = localStorage.getItem('id_token');
         console.log(currentToken);
-
+        console.log("this is after the token");
       });
-
+    
+    
     const { email, password } = this.state;
 
     if (email === "") {
