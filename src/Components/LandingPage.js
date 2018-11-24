@@ -6,6 +6,11 @@ import "../App.css";
 import "./LandingPage.css";
 
 const landingPage = (props) => {
+  function toggleProviderStatus() {
+    console.log('hi');
+    console.log(localStorage.getItem('provider_status'));
+  };
+
   let userButtons = null;
   let providerButtons = null;
   let consumerButtons = null;
@@ -21,14 +26,14 @@ const landingPage = (props) => {
       providerButtons = (
         <div>
           <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
-          <p><button>Become a Consumer</button></p>
+          <p><button onClick={toggleProviderStatus}>Become a Consumer</button></p>
         </div>
       )
     } else {
       consumerButtons = (
         <div>
           <p><button>Post a Job</button></p>
-          <p><button>Become a Provider</button></p>
+          <p><button onClick={toggleProviderStatus}>Become a Provider</button></p>
         </div>
       )
     }
