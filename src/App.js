@@ -3,8 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./Containers/Home";
 
-// import LandingPage from "./Components/LandingPage";
-// import AllJobs from "./Components/AllJobs";
+import LandingPage from "./Components/LandingPage";
+import AllJobs from "./Components/AllJobs";
 
 class App extends Component {
   render() {
@@ -13,8 +13,8 @@ class App extends Component {
         <div className="App">
           <Home />
 
-          {/* <LandingPage /> */}
-          {/* <AllJobs /> */}
+          <LandingPage />
+          <AllJobs />
         </div>
       </BrowserRouter>
     );

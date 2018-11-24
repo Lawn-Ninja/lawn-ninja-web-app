@@ -9,7 +9,7 @@ const landingPage = (props) => {
   let userButtons = null;
   let providerButtons = null;
 
-  if (props.loggedIn) {
+  if (localStorage.getItem('id_token')) {
     userButtons = (
       <div>
         <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
@@ -17,7 +17,7 @@ const landingPage = (props) => {
       </div>
     )
 
-    if (props.provider) {
+    if (false) {
       providerButtons = (
         <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
       )
