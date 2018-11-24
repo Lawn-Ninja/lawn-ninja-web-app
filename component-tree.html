@@ -1,0 +1,116 @@
+<root>
+  <Navbar>
+    
+  </Navbar>
+  <!-- PAGES BEGIN -->
+  <LoggedInPage>
+    <Button text="Post a Job"></Button>
+    <Button text="Jobs Near Me"></Button>
+    <Button text="My Jobs"></Button>
+  </LoggedInPage>
+
+  <LoggedOutPage>
+    <Button text="Pricing and Info"></Button>
+    <Button text="Log In"></Button>
+    <Button text="Sign Up"></Button>
+  </LoggedOutPage>
+
+  <AboutPage>
+    <InfoBlock></InfoBlock>
+    <Button text="Sign Up"></Button>
+    <Button text="Home"></Button>
+  </AboutPage>
+
+  <LogInPage>
+    <FormLine value="email"></FormLine>
+    <FormLine value="password"></FormLine>
+    <Button text="Log In"></Button>
+  </LogInPage>
+
+  <SignUpPage>
+    <FormLine value="first name"></FormLine>
+    <FormLine value="last name"></FormLine>
+    <FormLine value="email"></FormLine>
+    <FormLine value="password"></FormLine>
+    <FormLine value="confirm password"></FormLine>
+    <FormLine value="street address"></FormLine>
+    <FormLine value="city"></FormLine>
+    <FormLine value="state"></FormLine>
+    <FormLine value="zip code"></FormLine>
+    <FormLine value="phone number"></FormLine>
+    <FormLineCheckbox value="provider"></FormLineCheckbox>
+    <Button text="Sign Up"></Button>
+  </SignUpPage>
+
+  <NewJobPage>
+    <FormLine value="requested date/time"></FormLine>
+    <Button text="Request a Job"></Button>
+  </NewJobPage>
+
+  <MyJobsPage>
+    <JobsList title="Requested Jobs">
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+    </JobsList>
+    <JobsList title="Scheduled Jobs">
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+    </JobsList>
+    <JobsList title="Completed Jobs">
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+    </JobsList>
+  </MyJobsPage>
+
+  <JobsNearMePage>
+    <JobsList title="Jobs Near Me">
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+      <Job></Job>
+    </JobsList>
+  </JobsNearMePage>
+
+  <JobDetailsPage>
+    <JobDetails></JobDetails>
+    <!-- Only one of the below buttons will display -->
+    <Button text="Cancel Job Request"></Button>
+    <Button text="Claim Job"></Button>
+    <Button text="Start Job"></Button>
+    <Button text="Stop Job"></Button>
+    <Button text="View Reciept"></Button>
+  </JobDetailsPage>
+  <!-- PAGES END -->
+  <Footer>
+    
+  </Footer>
+</root>
+
+<!-- 
+Components List:
+
+navbar
+logged-in-page
+logged-out-page
+about-page
+log-in-page
+sign-up-page
+new-job-page
+my-jobs-page
+jobs-near-me-page
+job-details-page
+footer
+jobs-list
+job
+job-details
+info-block
+form-line
+form-line-checkbox
+button
+ -->

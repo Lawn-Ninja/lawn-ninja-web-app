@@ -1,18 +1,22 @@
 import React, { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import AllJobs from "./Components/AllJobs";
-import NewUser from "./Components/NewUser";
+import Home from "./Containers/Home";
+
+// import LandingPage from "./Components/LandingPage";
+// import AllJobs from "./Components/AllJobs";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>Jobs </h1>
+      <BrowserRouter>
+        <div className="App">
+          <Home />
+
+          {/* <LandingPage /> */}
+          {/* <AllJobs /> */}
         </div>
-        <NewUser />
-        <AllJobs />
-      </div>
+      </BrowserRouter>
     );
   }
 }
