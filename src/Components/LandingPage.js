@@ -9,6 +9,7 @@ const landingPage = (props) => {
   function toggleProviderStatus() {
     console.log('hi');
     console.log(localStorage.getItem('provider_status'));
+    console.log(localStorage.getItem('user_id'));
   };
 
   let userButtons = null;
