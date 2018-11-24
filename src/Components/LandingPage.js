@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 import "../App.css";
@@ -7,9 +8,20 @@ import "./LandingPage.css";
 
 const landingPage = (props) => {
   function toggleProviderStatus() {
-    console.log('hi');
-    console.log(localStorage.getItem('provider_status'));
-    console.log(localStorage.getItem('user_id'));
+    var providerStatus;
+
+    if (localStorage.getItem('provider_status') === "false") {
+      providerStatus = true;
+    } else {
+      providerStatus = false;
+    }
+    var userId = localStorage.getItem('user_id');
+    var params = {user: {provider: providerStatus}}
+    axios.patch('http://localhost:3001/users/' + userId, params).then(response => {
+      localStorage.setItem('provider_status', response.data.user.provider);
+      var currentProvider = localStorage.getItem('provider_status');
+    });
+
   };
 
   let userButtons = null;
@@ -23,7 +35,7 @@ const landingPage = (props) => {
       </div>
     )
 
-    if (false) {
+    if (localStorage.getItem('provider_status') === "true") {
       providerButtons = (
         <div>
           <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>

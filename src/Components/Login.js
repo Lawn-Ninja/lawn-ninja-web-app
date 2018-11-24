@@ -22,10 +22,12 @@ class Login extends Component {
         localStorage.setItem('id_token', response.data.jwt);
         localStorage.setItem('provider_status', response.data.provider);
         localStorage.setItem('user_id', response.data.user_id);
-        // var currentToken = localStorage.getItem('id_token');
-        // var currentProvider = localStorage.getItem('provider_status');
-        // console.log(currentToken);
-        // console.log(currentProvider);
+        var currentToken = localStorage.getItem('id_token');
+        var currentProvider = localStorage.getItem('provider_status');
+        var currentId = localStorage.getItem('user_id');
+        console.log(currentToken);
+        console.log(currentProvider);
+        console.log(currentId);
         // console.log("this is after the token");
       });
     
