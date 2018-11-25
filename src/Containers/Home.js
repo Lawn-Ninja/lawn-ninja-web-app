@@ -4,8 +4,10 @@ import { Route, Link } from "react-router-dom";
 
 import "./Home.css";
 import LandingPage from "../Components/LandingPage";
-import Login from "../Components/Login"
-import NewUser from "../Components/NewUser"
+import Login from "../Components/Login";
+import NewUser from "../Components/NewUser";
+import Logout from "../Components/Logout";
+import AllJobs from "../Components/AllJobs";
 
 class Home extends Component {
     render () {
@@ -26,12 +28,17 @@ class Home extends Component {
                         <li>
                             <Link to="/signup" className="hover_link">SignUp</Link>
                         </li>
+                        <li>
+                            <Link to="/logout" className="hover_link">Logout</Link>
+                        </li>
                         </ul>
                     </nav>
                 </div>
                 <Route path="/" exact component={ LandingPage } />
                 <Route path="/login" exact component={ Login } />
                 <Route path="/signup" exact component={ NewUser } />
+                <Route path="/logout" exact component={ Logout } />
+                <Route path="/jobs" exact component={ AllJobs } />
             </div>
         );
     }

@@ -19,13 +19,14 @@ class Login extends Component {
       .then(function(response) {
       
         // console.log(response.data);
+        console.log("in login request")
         localStorage.setItem('id_token', response.data.jwt);
         var currentToken = localStorage.getItem('id_token');
+        console.log("current token");
         console.log(currentToken);
-        console.log("this is after the token");
       });
     
-    
+      
     const { email, password } = this.state;
 
     if (email === "") {
