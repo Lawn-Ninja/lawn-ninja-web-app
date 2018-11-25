@@ -1,17 +1,15 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 class Logout extends Component {
-  state = {
-    submitted: false
-  }
-
   postLogoutHandler = () => {
     axios.delete("http://localhost:3001/logout")
       .then(response =>  {
       console.log(response);
       this.props.history.replace('/login');
+
+    // testing for jwt token
       console.log("in logout request");
       localStorage.setItem('id_token', response.data.jwt);
       var currentToken = localStorage.getItem('id_token');
@@ -21,10 +19,6 @@ class Logout extends Component {
   };
 
   render() {
-    let redirect = null;
-    if (this.state.submitted) {
-      redirect = <Redirect to="/login" />;
-    }
     return (
       <div className="card mb-3">
         <div className="card-header">Logout</div>
@@ -42,4 +36,4 @@ class Logout extends Component {
   }
 }
 
-export default Logout;
+export default withRouter(Logout);

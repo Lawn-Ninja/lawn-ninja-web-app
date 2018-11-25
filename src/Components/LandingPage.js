@@ -6,6 +6,7 @@ import "../App.css";
 import "./LandingPage.css";
 
 const landingPage = (props) => {
+  console.log(localStorage.getItem('id_token'));
   let userButtons = null;
   let providerButtons = null;
 
