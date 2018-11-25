@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 import "../App.css";
@@ -7,20 +8,47 @@ import "./LandingPage.css";
 
 const landingPage = (props) => {
   console.log(localStorage.getItem('id_token'));
+  function toggleProviderStatus() {
+    var providerStatus;
+
+    if (localStorage.getItem('provider_status') === "false") {
+      providerStatus = true;
+    } else {
+      providerStatus = false;
+    }
+    var userId = localStorage.getItem('user_id');
+    var params = {user: {provider: providerStatus}}
+    axios.patch('http://localhost:3001/users/' + userId, params).then(response => {
+      localStorage.setItem('provider_status', response.data.user.provider);
+      var currentProvider = localStorage.getItem('provider_status');
+    });
+
+  };
+
   let userButtons = null;
   let providerButtons = null;
+  let consumerButtons = null;
 
   if (localStorage.getItem('id_token')) {
     userButtons = (
       <div>
         <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
-        <p><button>Post a Job</button></p>
       </div>
     )
 
-    if (props.provider) {
+    if (localStorage.getItem('provider_status') === "true") {
       providerButtons = (
-        <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
+        <div>
+          <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
+          <p><button onClick={toggleProviderStatus}>Become a Consumer</button></p>
+        </div>
+      )
+    } else {
+      consumerButtons = (
+        <div>
+          <p><button>Post a Job</button></p>
+          <p><button onClick={toggleProviderStatus}>Become a Provider</button></p>
+        </div>
       )
     }
 
@@ -41,6 +69,7 @@ const landingPage = (props) => {
       <span className="button-options">
         {userButtons}
         {providerButtons}
+        {consumerButtons}
       </span>
       <footer className="clear"></footer>
     </div>

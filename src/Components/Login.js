@@ -25,9 +25,17 @@ class Login extends Component {
       // testing for jwt token
         console.log("in login request");
         localStorage.setItem('id_token', response.data.jwt);
+        localStorage.setItem('provider_status', response.data.provider);
+        localStorage.setItem('user_id', response.data.user_id);
         var currentToken = localStorage.getItem('id_token');
         console.log("current token");
         console.log(currentToken);
+        var currentProvider = localStorage.getItem('provider_status');
+        var currentId = localStorage.getItem('user_id');
+        console.log(currentToken);
+        console.log(currentProvider);
+        console.log(currentId);
+        // console.log("this is after the token");
       });
 
     const { email, password } = this.state;
