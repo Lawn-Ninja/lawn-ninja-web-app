@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Job from "./Job";
+import JobsList from "./JobsList";
 import $ from 'jquery';
 
-class AllJobs extends Component {
+class MyJobs extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,9 @@ class AllJobs extends Component {
       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', token)},
       context: this, // Allows us to use this.setState inside success
       success: (result) => {
-        this.setState({jobs: result.jobs});
+        this.setState({
+          jobs: result.jobs
+        });
       }
     })
   }
@@ -27,17 +29,10 @@ class AllJobs extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state)}
-        {this.state.jobs.map(job => {
-          return (
-            <div className="tile" key={job.id}>
-              <Job key={job.id} job={job} />
-            </div>
-          );
-        })}
+        <JobsList title={"Jobs Near Me"} jobs={this.state.jobs}/>
       </div>
     );
   }
 }
 
-export default AllJobs;
+export default MyJobs;
