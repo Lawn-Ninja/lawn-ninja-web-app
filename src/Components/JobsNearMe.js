@@ -36,7 +36,8 @@ class MyJobs extends Component {
   render() {
     return (
       <div>
-        <JobsList title={"Jobs Near Me"} jobs={this.state.jobs}/>
+        <JobDetails job={this.state.jobs[0]} />
+        {/* <JobsList title={"Jobs Near Me"} jobs={this.state.jobs}/> */}
       </div>
     );
   }
