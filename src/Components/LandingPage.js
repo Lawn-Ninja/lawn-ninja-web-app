@@ -16,6 +16,42 @@ class landingPage extends Component {
     };
   }
 
+  buttons = () => {
+    if (localStorage.getItem('id_token') !== "undefined") {
+      this.setState({userButtons: (
+        <div>
+          <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
+        </div>
+      )});
+
+      if (localStorage.getItem('provider_status') === "true") {
+        this.setState({ providerButtons: (
+          <div>
+            <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
+            <p><button onClick={this.toggleProviderStatus}>Become a Consumer</button></p>
+          </div>
+        ),
+        consumerButtons: null });
+      } else {
+        this.setState({consumerButtons: (
+          <div>
+            <p><button>Post a Job</button></p>
+            <p><button onClick={this.toggleProviderStatus}>Become a Provider</button></p>
+          </div>
+        ),
+        providerButtons: null });
+      }
+    } else {
+      this.setState({userButtons: (
+        <div>
+          <p><button><Link to="/login" className="hover_link">Log In</Link></button></p>
+          <p><button><Link to="/signup" className="hover_link">Sign Up</Link></button></p>
+          <p><button>Pricing & Info</button></p>
+        </div>
+      )});
+    }
+  }
+
   toggleProviderStatus = () => {
     var providerStatus;
 
@@ -28,76 +64,12 @@ class landingPage extends Component {
     var params = {user: {provider: providerStatus}}
     axios.patch('http://localhost:3001/users/' + userId, params).then(response => {
       localStorage.setItem('provider_status', response.data.user.provider);
-      if (localStorage.getItem('id_token') !== "undefined") {
-        this.setState({userButtons: (
-          <div>
-            <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
-          </div>
-        )});
-
-        if (localStorage.getItem('provider_status') === "true") {
-          this.setState({ providerButtons: (
-            <div>
-              <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
-              <p><button onClick={this.toggleProviderStatus}>Become a Consumer</button></p>
-            </div>
-          ),
-          consumerButtons: null });
-        } else {
-          this.setState({consumerButtons: (
-            <div>
-              <p><button>Post a Job</button></p>
-              <p><button onClick={this.toggleProviderStatus}>Become a Provider</button></p>
-            </div>
-          ),
-          providerButtons: null });
-        }
-
-      } else {
-        this.setState({userButtons: (
-          <div>
-            <p><button><Link to="/login" className="hover_link">Log In</Link></button></p>
-            <p><button><Link to="/signup" className="hover_link">Sign Up</Link></button></p>
-            <p><button>Pricing & Info</button></p>
-          </div>
-        )});
-      }
+      this.buttons();
     });
   }
 
   componentDidMount() {
-    if (localStorage.getItem('id_token') !== "undefined") {
-      this.setState({userButtons: (
-        <div>
-          <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
-        </div>
-      )});
-
-      if (localStorage.getItem('provider_status') === "true") {
-        this.setState({providerButtons: (
-          <div>
-            <p><button><Link to="/jobs" className="hover_link">Jobs Near Me</Link></button></p>
-            <p><button onClick={this.toggleProviderStatus}>Become a Consumer</button></p>
-          </div>
-        )});
-      } else {
-        this.setState({consumerButtons: (
-          <div>
-            <p><button>Post a Job</button></p>
-            <p><button onClick={this.toggleProviderStatus}>Become a Provider</button></p>
-          </div>
-        )});
-      }
-
-    } else {
-      this.setState({userButtons: (
-        <div>
-          <p><button><Link to="/login" className="hover_link">Log In</Link></button></p>
-          <p><button><Link to="/signup" className="hover_link">Sign Up</Link></button></p>
-          <p><button>Pricing & Info</button></p>
-        </div>
-      )});
-    }
+    this.buttons();
   };
 
   render() {
@@ -114,7 +86,7 @@ class landingPage extends Component {
         <footer className="clear"></footer>
       </div>
     )
-}
+  }
 }
 
 export default landingPage;
