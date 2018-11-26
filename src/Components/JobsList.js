@@ -13,7 +13,6 @@ class JobsList extends Component {
   render() {
     return (
       <div>
-        {console.log(this.props.jobs)}
         <h2>{this.props.title}</h2>
         {this.props.jobs.map(job => {
           return (
