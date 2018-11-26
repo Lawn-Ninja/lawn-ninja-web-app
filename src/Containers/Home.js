@@ -8,6 +8,8 @@ import Login from "../Components/Login";
 import NewUser from "../Components/NewUser";
 import Logout from "../Components/Logout";
 import AllJobs from "../Components/AllJobs";
+import MyJobs from "../Components/MyJobs";
+
 
 class Home extends Component {
     render () {
@@ -39,6 +41,8 @@ class Home extends Component {
                 <Route path="/signup" exact component={ NewUser } />
                 <Route path="/logout" exact component={ Logout } />
                 <Route path="/jobs" exact component={ AllJobs } />
+                <Route path="/my_jobs" exact component={ MyJobs } />
+
             </div>
         );
     }
