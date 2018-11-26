@@ -1,0 +1,25 @@
+.form {
+  /* position: absolute; */
+  width: 50%;
+  /* float: center; */
+  display: inline-block;
+  text-align: center;
+}
+
+.form-header {
+  font-size: 40px;
+  font-weight: bold;
+  color: green;
+}
+
+.button {
+  /* padding: 15px;
+  margin: 10px; */
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}

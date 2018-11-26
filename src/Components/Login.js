@@ -1,12 +1,18 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
+
+import "../App.css";
+import "../Containers/Home.css";
+import "./Form.css";
 
 class Login extends Component {
   state = {
     email: "",
     password: "",
-    errors: {}
+    errors: {},
+    submitted: false
   };
 
   onSubmit = event => {
@@ -16,16 +22,18 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password
       })
-      .then(function(response) {
-      
-        // console.log(response.data);
-        localStorage.setItem('id_token', response.data.jwt);
-        var currentToken = localStorage.getItem('id_token');
-        console.log(currentToken);
-        console.log("this is after the token");
+      .then(response => {
+        console.log(response.data);
+
+        // testing for jwt token
+        console.log("in login request");
+        localStorage.setItem("id_token", response.data.jwt);
+        localStorage.setItem("provider_status", response.data.provider);
+        localStorage.setItem("user_id", response.data.user_id);
+        this.props.history.replace("/");
+        // console.log("this is after the token");
       });
-    
-    
+
     const { email, password } = this.state;
 
     if (email === "") {
@@ -49,10 +57,14 @@ class Login extends Component {
 
   render() {
     const { email, password, errors } = this.state;
-
+    // let redirect = null;
+    // if (this.state.submitted) {
+    //   redirect = <Redirect to="/jobs" />;
+    // }
     return (
-      <div className="card mb-3">
-        <div className="card-header">Login</div>
+      // <div className="card mb-3">
+      <div className="form">
+        <div className="form-header">Login</div>
         <div className="card-body">
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
@@ -73,15 +85,11 @@ class Login extends Component {
               onChange={this.onChange}
               error={errors.password}
             />
-            <input
-              type="submit"
-              value="Login"
-              className="btn btn-light btn-block"
-            />
+            <input type="submit" value="Login" className="button" />
           </form>
         </div>
       </div>
     );
   }
 }
-export default Login;
+export default withRouter(Login);
