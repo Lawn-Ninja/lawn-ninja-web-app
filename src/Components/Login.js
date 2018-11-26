@@ -3,6 +3,10 @@ import { withRouter } from "react-router-dom";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
+import "../App.css";
+import "../Containers/Home.css";
+import "./Form.css";
+
 class Login extends Component {
   state = {
     email: "",
@@ -26,14 +30,6 @@ class Login extends Component {
         localStorage.setItem("id_token", response.data.jwt);
         localStorage.setItem("provider_status", response.data.provider);
         localStorage.setItem("user_id", response.data.user_id);
-        var currentToken = localStorage.getItem("id_token");
-        console.log("current token");
-        console.log(currentToken);
-        var currentProvider = localStorage.getItem("provider_status");
-        var currentId = localStorage.getItem("user_id");
-        console.log(currentToken);
-        console.log(currentProvider);
-        console.log(currentId);
         this.props.history.replace("/");
         // console.log("this is after the token");
       });
@@ -66,8 +62,9 @@ class Login extends Component {
     //   redirect = <Redirect to="/jobs" />;
     // }
     return (
-      <div className="card mb-3">
-        <div className="card-header">Login</div>
+      // <div className="card mb-3">
+      <div className="form">
+        <div className="form-header">Login</div>
         <div className="card-body">
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
@@ -88,11 +85,7 @@ class Login extends Component {
               onChange={this.onChange}
               error={errors.password}
             />
-            <input
-              type="submit"
-              value="Login"
-              className="btn btn-light btn-block"
-            />
+            <input type="submit" value="Login" className="button" />
           </form>
         </div>
       </div>
