@@ -1,0 +1,4 @@
+.requested, .scheduled, .inProgress, .completed {
+    border-bottom-style: solid;
+    border-color: rgb(4, 67, 85);
+}

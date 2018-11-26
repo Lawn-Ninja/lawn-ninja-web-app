@@ -7,7 +7,7 @@ import LandingPage from "../Components/LandingPage";
 import Login from "../Components/Login";
 import NewUser from "../Components/NewUser";
 import Logout from "../Components/Logout";
-import AllJobs from "../Components/AllJobs";
+import JobsNearMe from "../Components/JobsNearMe";
 import MyJobs from "../Components/MyJobs";
 
 
@@ -40,7 +40,7 @@ class Home extends Component {
                 <Route path="/login" exact component={ Login } />
                 <Route path="/signup" exact component={ NewUser } />
                 <Route path="/logout" exact component={ Logout } />
-                <Route path="/jobs" exact component={ AllJobs } />
+                <Route path="/jobs" exact component={ JobsNearMe} />
                 <Route path="/my_jobs" exact component={ MyJobs } />
 
             </div>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import JobsList from "./JobsList";
 import $ from 'jquery';
+import "./MyJobs.css";
+
 
 class MyJobs extends Component {
   constructor(props) {
@@ -35,10 +37,19 @@ class MyJobs extends Component {
   render() {
     return (
       <div>
-        <JobsList title={"Requested Jobs"} jobs={this.state.requestedJobs}/>
-        <JobsList title={"Scheduled Jobs"} jobs={this.state.scheduledJobs}/>
-        <JobsList title={"Jobs In Progress"} jobs={this.state.startedJobs}/>
-        <JobsList title={"Completed Jobs"} jobs={this.state.completedJobs}/>
+          <div className="requested">
+            <JobsList title={"Requested Jobs"} jobs={this.state.requestedJobs}/>
+          </div>
+          <div className="scheduled">
+            <JobsList title={"Scheduled Jobs"} jobs={this.state.scheduledJobs}/>
+          </div>
+          <div className="inProgress">
+            <JobsList title={"Jobs In Progress"} jobs={this.state.startedJobs}/>
+          </div>
+          <div className="completed">
+            <JobsList title={"Completed Jobs"} jobs={this.state.completedJobs}/>
+          </div>
+
       </div>
     );
   }

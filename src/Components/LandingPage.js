@@ -28,7 +28,7 @@ class landingPage extends Component {
     var params = {user: {provider: providerStatus}}
     axios.patch('http://localhost:3001/users/' + userId, params).then(response => {
       localStorage.setItem('provider_status', response.data.user.provider);
-      if (localStorage.getItem('id_token')) {
+      if (localStorage.getItem('id_token') !== "undefined") {
         this.setState({userButtons: (
           <div>
             <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>
@@ -66,7 +66,7 @@ class landingPage extends Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem('id_token')) {
+    if (localStorage.getItem('id_token') !== "undefined") {
       this.setState({userButtons: (
         <div>
           <p><button><Link to="/my_jobs" className="hover_link">My Jobs</Link></button></p>

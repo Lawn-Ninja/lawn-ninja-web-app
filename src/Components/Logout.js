@@ -7,6 +7,8 @@ class Logout extends Component {
     axios.delete("http://localhost:3001/logout")
       .then(response =>  {
       console.log(response);
+      console.log(response.data.jwt);
+
       this.props.history.replace('/login');
 
     // testing for jwt token
