@@ -11,13 +11,13 @@
 }
 
 .form-body {
-  text-align: left;
+  /* text-align: left; */
   font-weight: bold;
 }
 
 .button {
   display: inline-block;
-  /* justify-content: center; */
+  justify-content: center;
   width: auto;
   text-align: center;
   background-color: green;
