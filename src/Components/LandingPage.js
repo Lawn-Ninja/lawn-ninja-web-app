@@ -17,10 +17,6 @@ class landingPage extends Component {
   }
 
   buttons = () => {
-    console.log(localStorage.getItem('id_token'));
-    console.log(localStorage.getItem('provider_status'));
-    console.log(localStorage.getItem('user_id'));
-
     if (localStorage.getItem('id_token') !== "undefined") {
       this.setState({userButtons: (
         <div>
