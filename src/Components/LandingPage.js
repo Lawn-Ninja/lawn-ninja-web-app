@@ -6,11 +6,6 @@ import axios from "axios";
 import "../App.css";
 import "./LandingPage.css";
 
-<<<<<<< HEAD
-const landingPage = (props) => {
-  console.log(localStorage.getItem('id_token'));
-  function toggleProviderStatus() {
-=======
 class landingPage extends Component {
   constructor() {
     super();
@@ -22,7 +17,6 @@ class landingPage extends Component {
   }
 
   toggleProviderStatus = () => {
->>>>>>> e567f4150492772aae519abeba9f9f25d16dc2fc
     var providerStatus;
 
     if (localStorage.getItem('provider_status') === "false") {
