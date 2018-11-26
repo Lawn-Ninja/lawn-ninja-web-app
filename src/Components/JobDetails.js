@@ -93,13 +93,14 @@ class JobDetails extends Component {
   };
 
   render() {
-    const { user_id, requested_time, status } = this.props.job;
+    const { id, user_id, requested_time, status } = this.props.job;
 
     return (
       <div>
         <h1 className="clear">Job Details</h1>
         <div className="job-detail-info">
-          <h4>User ID: {user_id}</h4>
+          <h4>ID: {id}</h4>
+          <h5>User ID: {user_id}</h5>
           <p>Requested Time: {requested_time}</p>
           <p>Status: {status}</p>
           {this.state.providerInfo}
@@ -110,7 +111,6 @@ class JobDetails extends Component {
           {this.state.userButtons}
           {this.state.providerButtons}
         </div>
-        <h1 className="clear">End of Job Details</h1>
       </div>
     );
   }
