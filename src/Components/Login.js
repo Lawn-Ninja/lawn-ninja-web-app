@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
@@ -10,7 +11,8 @@ class Login extends Component {
   state = {
     email: "",
     password: "",
-    errors: {}
+    errors: {},
+    submitted: false
   };
 
   onSubmit = event => {
@@ -20,17 +22,15 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password
       })
-      .then(function(response) {
-        // console.log(response.data);
+      .then(response => {
+        console.log(response.data);
+
+        // testing for jwt token
+        console.log("in login request");
         localStorage.setItem("id_token", response.data.jwt);
         localStorage.setItem("provider_status", response.data.provider);
         localStorage.setItem("user_id", response.data.user_id);
-        var currentToken = localStorage.getItem("id_token");
-        var currentProvider = localStorage.getItem("provider_status");
-        var currentId = localStorage.getItem("user_id");
-        console.log(currentToken);
-        console.log(currentProvider);
-        console.log(currentId);
+        this.props.history.replace("/");
         // console.log("this is after the token");
       });
 
@@ -57,7 +57,10 @@ class Login extends Component {
 
   render() {
     const { email, password, errors } = this.state;
-
+    // let redirect = null;
+    // if (this.state.submitted) {
+    //   redirect = <Redirect to="/jobs" />;
+    // }
     return (
       // <div className="card mb-3">
       <div className="form">
@@ -89,4 +92,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default withRouter(Login);
