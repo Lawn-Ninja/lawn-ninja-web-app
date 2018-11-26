@@ -13,8 +13,9 @@ class JobsList extends Component {
   render() {
     return (
       <div>
+        {console.log(this.props.jobs)}
         <h2>{this.props.title}</h2>
-        {this.props.jobs[0].map(job => {
+        {this.props.jobs.map(job => {
           return (
             <div className="tile" key={job.id}>
               <Job key={job.id} job={job} />

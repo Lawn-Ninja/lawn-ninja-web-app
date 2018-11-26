@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import JobList from "./JobsList";
+import JobsList from "./JobsList";
 import $ from 'jquery';
 
 class MyJobs extends Component {
@@ -35,10 +35,10 @@ class MyJobs extends Component {
   render() {
     return (
       <div>
-        <JobList title={"Requested Jobs"} jobs={[this.state.requestedJobs]}/>
-        <JobList title={"Scheduled Jobs"} jobs={[this.state.scheduledJobs]}/>
-        <JobList title={"Jobs In Progress"} jobs={[this.state.startedJobs]}/>
-        <JobList title={"Completed Jobs"} jobs={[this.state.completedJobs]}/>
+        <JobsList title={"Requested Jobs"} jobs={this.state.requestedJobs}/>
+        <JobsList title={"Scheduled Jobs"} jobs={this.state.scheduledJobs}/>
+        <JobsList title={"Jobs In Progress"} jobs={this.state.startedJobs}/>
+        <JobsList title={"Completed Jobs"} jobs={this.state.completedJobs}/>
       </div>
     );
   }
