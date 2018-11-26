@@ -10,7 +10,7 @@ import "./Form.css";
 
 class NewJob extends Component {
   state = {
-    requested_time: "",
+    requested_time: new Date(),
     errors: {}
   };
 
@@ -30,32 +30,32 @@ class NewJob extends Component {
     }
 
     this.setState({
-      requested_time: ""
+      requested_time: new Date()
     });
   };
 
-  onChange = event =>
-    this.setState({ [event.target.name]: event.target.value });
+  onChange = requested_time => {
+    this.setState({ requested_time });
+    console.log(requested_time);
+  };
 
   render() {
     const { requested_time, errors } = this.state;
     return (
-      <div className="form">
-        <div className="form-header">Create New Job</div>
-        <div className="card-body">
-          <form onSubmit={this.onSubmit.bind(this)}>
-            <TextInputGroup
-              label="RequestedTime"
-              name="requested_time"
-              type="dateTime"
-              placeholder="Enter Requested Time"
-              value={requested_time}
-              onChange={this.onChange}
-              error={errors.requested_time}
-            />
-            <input type="submit" value="NewJob" className="button" />
-          </form>
-        </div>
+      <div>
+        <form onSubmit={this.onSubmit.bind(this)}>
+          <DateTimePicker onChange={this.onChange} value={requested_time} />
+          <TextInputGroup
+            label="RequestedTime"
+            name="requested_time"
+            type="datetime"
+            placeholder="Date Time"
+            value={requested_time}
+            onChange={this.onChange}
+            error={errors.requested_time}
+          />
+          <input type="submit" value="New Job" className="button" />
+        </form>
       </div>
     );
   }
