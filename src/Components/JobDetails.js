@@ -7,13 +7,14 @@ class JobDetails extends Component {
     this.state = {
       providerButtons: null,
       consumerButtons: null,
-      userButtons: null
+      userButtons: null,
+      providerInfo: null,
+      startInfo: null,
+      endInfo: null
     };
   }
 
   buttons = () => {
-    console.log(localStorage.getItem('user_id'));
-    console.log(this.props.job.user_id)
     if (this.props.job.user_id === localStorage.getItem('user_id')) {
       // this job belongs to the logged in user
       if (this.props.job.status === "posted") {
@@ -60,25 +61,50 @@ class JobDetails extends Component {
         )});
       }
     }
-  }
+  };
+
+  info = () => {
+    if (this.props.job.status === "claimed" || this.props.job.status === "started" || this.props.job.status === "completed") {
+      this.setState({providerInfo: (
+        <div>
+          <h5>Provider ID: {this.props.job.provider_id}</h5>
+        </div>
+      )});
+    }
+    if (this.props.job.status === "started" || this.props.job.status === "completed") {
+      this.setState({startInfo: (
+        <div>
+          <p>Start Time: {this.props.job.start_time}</p>
+        </div>
+      )});
+    }
+    if (this.props.job.status === "completed") {
+      this.setState({endInfo: (
+        <div>
+          <p>End Time: {this.props.job.end_time}</p>
+        </div>
+      )});
+    }
+  };
 
   componentDidMount() {
     this.buttons();
+    this.info();
   };
 
   render() {
-    const { user_id, requested_time, status, provider_id, start_time, end_time  } = this.props.job;
+    const { user_id, requested_time, status } = this.props.job;
 
     return (
       <div>
         <h1 className="clear">Job Details</h1>
         <div className="job-detail-info">
           <h4>User ID: {user_id}</h4>
-          <h5>Provider ID: {provider_id}</h5>
           <p>Requested Time: {requested_time}</p>
-          <p>Start Time: {start_time}</p>
-          <p>End Time: {end_time}</p>
           <p>Status: {status}</p>
+          {this.state.providerInfo}
+          {this.state.startInfo}
+          {this.state.endInfo}
         </div>
         <div className="job-detail-buttons">
           {this.state.userButtons}
