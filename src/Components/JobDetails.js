@@ -2,6 +2,70 @@ import React, { Component } from "react";
 import "./JobDetails.css";
 
 class JobDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      providerButtons: null,
+      consumerButtons: null,
+      userButtons: null
+    };
+  }
+
+  buttons = () => {
+    console.log(localStorage.getItem('user_id'));
+    console.log(this.props.job.user_id)
+    if (this.props.job.user_id === localStorage.getItem('user_id')) {
+      // this job belongs to the logged in user
+      if (this.props.job.status === "posted") {
+        this.setState({userButtons: (
+          <div>
+            <p><button>Cancel Request</button></p>
+          </div>
+        )});
+      } else if (this.props.job.status === "claimed") {
+        
+      } else if (this.props.job.status === "started") {
+
+      } else if (this.props.job.status === "completed") {
+        this.setState({userButtons: (
+          <div>
+            <p><button>View Invoice</button></p>
+          </div>
+        )});
+      }
+    } else {
+      if (this.props.job.status === "posted") {
+        this.setState({providerButtons: (
+          <div>
+            <p><button>Claim Job</button></p>
+          </div>
+        )});
+      } else if (this.props.job.status === "claimed") {
+        this.setState({providerButtons: (
+          <div>
+            <p><button>Start Job</button></p>
+          </div>
+        )});
+      } else if (this.props.job.status === "started") {
+        this.setState({providerButtons: (
+          <div>
+            <p><button>End Job</button></p>
+          </div>
+        )});
+      } else if (this.props.job.status === "completed") {
+        this.setState({providerButtons: (
+          <div>
+            <p><button>View Invoice</button></p>
+          </div>
+        )});
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.buttons();
+  };
+
   render() {
     const { user_id, requested_time, status, provider_id, start_time, end_time  } = this.props.job;
 
@@ -17,11 +81,8 @@ class JobDetails extends Component {
           <p>Status: {status}</p>
         </div>
         <div className="job-detail-buttons">
-          <p><button>Cancel Request</button></p>
-          <p><button>Claim Job</button></p>
-          <p><button>Start Job</button></p>
-          <p><button>End Job</button></p>
-          <p><button>View Invoice</button></p>
+          {this.state.userButtons}
+          {this.state.providerButtons}
         </div>
         <h1 className="clear">End of Job Details</h1>
       </div>
