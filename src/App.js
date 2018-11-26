@@ -4,7 +4,8 @@ import "./App.css";
 import Home from "./Containers/Home";
 
 // import LandingPage from "./Components/LandingPage";
-// import AllJobs from "./Components/AllJobs";
+// import JobsList from "./Components/AllJobs";
+import MyJobs from "./Components/MyJobs";
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
           <Home />
 
           {/* <LandingPage /> */}
-          {/* <AllJobs /> */}
+          {/* <JobsList jobs={[]}/> */}
+          <MyJobs />
         </div>
       </BrowserRouter>
     );
