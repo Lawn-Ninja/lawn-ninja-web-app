@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
-import "../App.css";
 import "./Form.css";
 
 class NewUser extends Component {

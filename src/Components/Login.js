@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
-import "../App.css";
 import "./Form.css";
 
 class Login extends Component {
