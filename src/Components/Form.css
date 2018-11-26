@@ -1,7 +1,5 @@
 .form {
-  /* position: absolute; */
-  width: 50%;
-  /* float: center; */
+  width: 40%;
   display: inline-block;
   text-align: center;
 }
@@ -12,9 +10,16 @@
   color: green;
 }
 
+.form-body {
+  text-align: left;
+  font-weight: bold;
+}
+
 .button {
-  /* padding: 15px;
-  margin: 10px; */
+  display: inline-block;
+  /* justify-content: center; */
+  width: auto;
+  text-align: center;
   background-color: green;
   color: white;
   font-weight: bold;
