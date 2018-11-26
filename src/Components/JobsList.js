@@ -14,7 +14,6 @@ class JobsList extends Component {
     return (
       <div>
         <h2>{this.props.title}</h2>
-        {console.log(this.props.jobs)}
         {this.props.jobs[0].map(job => {
           return (
             <div className="tile" key={job.id}>

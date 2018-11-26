@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import JobList from "./AllJobs";
-// import Job from "./Job";
+import JobList from "./JobsList";
 import $ from 'jquery';
 
 class MyJobs extends Component {
@@ -23,15 +22,12 @@ class MyJobs extends Component {
       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', token)},
       context: this, // Allows us to use this.setState inside success
       success: (result) => {
-        // console.log(result);
         this.setState({
           requestedJobs: result.jobs.requested_jobs,
           scheduledJobs: result.jobs.scheduled_jobs,
           startedJobs: result.jobs.in_progress_jobs,
           completedJobs: result.jobs.completed_jobs
         });
-        // console.log("THIS DOT STATE");
-        // console.log(this.state);
       }
     })
   }
