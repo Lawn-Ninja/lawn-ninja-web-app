@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
+import "../App.css";
+import "./Form.css";
+
 class NewUser extends Component {
   state = {
     name: "",
@@ -125,8 +128,8 @@ class NewUser extends Component {
     } = this.state;
 
     return (
-      <div className="card mb-3">
-        <div className="card-header">Create User</div>
+      <div className="form">
+        <div className="form-header">Sign Up</div>
         <div className="card-body">
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
@@ -204,11 +207,7 @@ class NewUser extends Component {
               onChange={this.onChange}
               error={errors.password_confirmation}
             />
-            <input
-              type="submit"
-              value="Create User"
-              className="btn btn-light btn-block"
-            />
+            <input type="submit" value="Create User" className="button" />
           </form>
         </div>
       </div>

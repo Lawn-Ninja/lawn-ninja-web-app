@@ -3,7 +3,7 @@ import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
 import "../App.css";
-// import "../Containers/Home.css";
+import "../Containers/Home.css";
 import "./Form.css";
 
 class Login extends Component {
