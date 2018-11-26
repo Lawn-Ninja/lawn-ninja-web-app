@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import Job from "./Job";
 import $ from 'jquery';
+import JobDetails from './JobDetails';
 
 class AllJobs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      jobs: []
+      jobs: [{
+        user_id: 0,
+        requested_time: "now",
+        status: "posted",
+        provider_id: 0,
+        start_time: "then",
+        end_time: "later"  }]
     };
   }
 
@@ -27,7 +34,8 @@ class AllJobs extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state)}
+        <JobDetails job={this.state.jobs[0]} />
+        {console.log(this.state.jobs)}
         {this.state.jobs.map(job => {
           return (
             <div className="tile" key={job.id}>
