@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
+import "../App.css";
+// import "../Containers/Home.css";
+import "./Form.css";
+
 class Login extends Component {
   state = {
     email: "",
@@ -17,21 +21,19 @@ class Login extends Component {
         password: this.state.password
       })
       .then(function(response) {
-      
         // console.log(response.data);
-        localStorage.setItem('id_token', response.data.jwt);
-        localStorage.setItem('provider_status', response.data.provider);
-        localStorage.setItem('user_id', response.data.user_id);
-        var currentToken = localStorage.getItem('id_token');
-        var currentProvider = localStorage.getItem('provider_status');
-        var currentId = localStorage.getItem('user_id');
+        localStorage.setItem("id_token", response.data.jwt);
+        localStorage.setItem("provider_status", response.data.provider);
+        localStorage.setItem("user_id", response.data.user_id);
+        var currentToken = localStorage.getItem("id_token");
+        var currentProvider = localStorage.getItem("provider_status");
+        var currentId = localStorage.getItem("user_id");
         console.log(currentToken);
         console.log(currentProvider);
         console.log(currentId);
         // console.log("this is after the token");
       });
-    
-    
+
     const { email, password } = this.state;
 
     if (email === "") {
@@ -57,8 +59,9 @@ class Login extends Component {
     const { email, password, errors } = this.state;
 
     return (
-      <div className="card mb-3">
-        <div className="card-header">Login</div>
+      // <div className="card mb-3">
+      <div className="form">
+        <div className="form-header">Login</div>
         <div className="card-body">
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
@@ -79,11 +82,7 @@ class Login extends Component {
               onChange={this.onChange}
               error={errors.password}
             />
-            <input
-              type="submit"
-              value="Login"
-              className="btn btn-light btn-block"
-            />
+            <input type="submit" value="Login" className="button" />
           </form>
         </div>
       </div>
