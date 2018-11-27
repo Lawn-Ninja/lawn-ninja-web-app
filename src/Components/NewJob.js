@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import TextInputGroup from "./TextInputGroup";
-import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 
 import "../App.css";
@@ -35,16 +34,9 @@ class NewJob extends Component {
       success: result => {
         console.log("Job successfully posted!");
         console.log(result);
+        this.props.history.replace("/signup");
       }
     });
-
-    // axios
-    //   .post("http://localhost:3001/jobs", {
-    //     requested_time: requested_time
-    //   })
-    //   .then(response => {
-    //     console.log(response.data);
-    //   });
 
     if (requested_time === "") {
       this.setState({
@@ -84,4 +76,4 @@ class NewJob extends Component {
     );
   }
 }
-export default NewJob;
+export default withRouter(NewJob);
