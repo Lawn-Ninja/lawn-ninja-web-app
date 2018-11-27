@@ -58,11 +58,12 @@ class NewJob extends Component {
   render() {
     const { requested_time, errors } = this.state;
     return (
-      <div>
+      <div className="form">
+        <div className="form-header">Post a Job</div>
         <form onSubmit={this.onSubmit.bind(this)}>
           <DateTimePicker onChange={this.onChange} value={requested_time} />
           <TextInputGroup
-            label="RequestedTime"
+            label="Requested Time"
             name="requested_time"
             type="datetime"
             placeholder="Date Time"
