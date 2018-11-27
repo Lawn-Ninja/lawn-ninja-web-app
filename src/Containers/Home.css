@@ -24,6 +24,7 @@ li {
 .header .logo {
   line-height: 30px;
   padding: 0 12px;
+  font-weight: bold;
 }
 .header .logo span {
   color: #2ecc71;
