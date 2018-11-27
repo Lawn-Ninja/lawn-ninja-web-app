@@ -15,6 +15,8 @@ class JobDetails extends Component {
   }
 
   buttons = () => {
+    console.log("this.props.job");
+    console.log(this.props.job);
     if (this.props.job.user_id === localStorage.getItem('user_id')) {
       // this job belongs to the logged in user
       if (this.props.job.status === "posted") {
@@ -87,17 +89,18 @@ class JobDetails extends Component {
     }
   };
 
-  componentDidMount() {
-    this.buttons();
-    this.info();
-  };
+  componentDidUpdate(prevProps) {
+    if (this.props.job !== prevProps.job) {
+      this.buttons();
+      this.info();
+    }
+  }
 
   render() {
     const { id, user_id, requested_time, status } = this.props.job;
 
     return (
       <div>
-        <h1 className="clear">Job Details</h1>
         <div className="job-detail-info">
           <h4>ID: {id}</h4>
           <h5>User ID: {user_id}</h5>
