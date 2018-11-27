@@ -16,15 +16,15 @@ class JobDetails extends Component {
   }
 
   deleteRequest = () => {
-    axios.delete("localhost:3001/jobs/" + this.props.job.id).then(response => {
+    axios.delete("http://localhost:3001/jobs/" + this.props.job.id).then(response => {
       console.log(response.data);
     }) 
   };
 
   claimJob = () => {
-    var client_id = localStorage.getItem('user_id');
-    var params = {job: {client_id: client_id}};
-    axios.patch("localhost:3001/jobs/" + this.props.job.id, params).then(response => {
+    var provider_id = localStorage.getItem('user_id');
+    var params = {job: {provider_id: provider_id, status: "claimed"}};
+    axios.patch("http://localhost:3001/jobs/" + this.props.job.id, params).then(response => {
       console.log(response.data);
     })
     this.buttons();
@@ -32,8 +32,8 @@ class JobDetails extends Component {
   };
 
   startJob = () => {
-    var params = {job: {start_time: Date()}};
-    axios.patch("localhost:3001/jobs/" + this.props.job.id, params).then(response => {
+    var params = {job: {start_time: Date(), status: "started"}};
+    axios.patch("http://localhost:3001/jobs/" + this.props.job.id, params).then(response => {
       console.log(response.data);
     })
     this.buttons();
@@ -41,8 +41,8 @@ class JobDetails extends Component {
   };
 
   endJob = () => {
-    var params = {job: {end_time: Date()}};
-    axios.patch("localhost:3001/jobs/" + this.props.job.id, params).then(response => {
+    var params = {job: {end_time: Date(), status: "completed"}};
+    axios.patch("http://localhost:3001/jobs/" + this.props.job.id, params).then(response => {
       console.log(response.data);
     })
     this.buttons();
@@ -55,7 +55,7 @@ class JobDetails extends Component {
       if (this.props.job.status === "posted") {
         this.setState({userButtons: (
           <div>
-            <p><button>Cancel Request</button></p>
+            <p><button onClick={this.deleteRequest}>Cancel Request</button></p>
           </div>
         )});
       } else if (this.props.job.status === "claimed") {
@@ -73,19 +73,19 @@ class JobDetails extends Component {
       if (this.props.job.status === "posted") {
         this.setState({providerButtons: (
           <div>
-            <p><button>Claim Job</button></p>
+            <p><button onClick={this.claimJob}>Claim Job</button></p>
           </div>
         )});
       } else if (this.props.job.status === "claimed") {
         this.setState({providerButtons: (
           <div>
-            <p><button>Start Job</button></p>
+            <p><button onClick={this.startJob}>Start Job</button></p>
           </div>
         )});
       } else if (this.props.job.status === "started") {
         this.setState({providerButtons: (
           <div>
-            <p><button>End Job</button></p>
+            <p><button onClick={this.endJob}>End Job</button></p>
           </div>
         )});
       } else if (this.props.job.status === "completed") {
