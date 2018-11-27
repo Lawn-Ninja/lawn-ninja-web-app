@@ -7,6 +7,7 @@ import DateTimePicker from "react-datetime-picker";
 import "../App.css";
 import "../Containers/Home.css";
 import "./Form.css";
+import $ from "jquery";
 
 class NewJob extends Component {
   state = {
@@ -19,8 +20,31 @@ class NewJob extends Component {
     console.log("create new job function");
 
     console.log(this.state.requested_time);
-
     const { requested_time } = this.state;
+
+    let token = "Bearer " + localStorage.getItem("id_token");
+
+    $.ajax({
+      url: "http://localhost:3001/jobs",
+      data: { job: { requested_time: requested_time } },
+      type: "POST",
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", token);
+      },
+      context: this,
+      success: result => {
+        console.log("Job successfully posted!");
+        console.log(result);
+      }
+    });
+
+    // axios
+    //   .post("http://localhost:3001/jobs", {
+    //     requested_time: requested_time
+    //   })
+    //   .then(response => {
+    //     console.log(response.data);
+    //   });
 
     if (requested_time === "") {
       this.setState({
