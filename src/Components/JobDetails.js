@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./JobDetails.css";
+import axios from 'axios';
 
 class JobDetails extends Component {
   constructor(props) {
@@ -14,9 +15,35 @@ class JobDetails extends Component {
     };
   }
 
+  claimJob = () => {
+    var client_id = localStorage.getItem('user_id');
+    var params = {job: {client_id: client_id}};
+    axios.patch("localhost:3001/jobs/" + this.props.job.id, params).then(response => {
+      console.log(response.body);
+    })
+    this.buttons();
+    this.info();
+  };
+
+  startJob = () => {
+    var params = {job: {start_time: Date()}};
+    axios.patch("localhost:3001/jobs/" + this.props.job.id, params).then(response => {
+      console.log(response.body);
+    })
+    this.buttons();
+    this.info();
+  };
+  
+  endJob = () => {
+    var params = {job: {end_time: Date()}};
+    axios.patch("localhost:3001/jobs/" + this.props.job.id, params).then(response => {
+      console.log(response.body);
+    })
+    this.buttons();
+    this.info();
+  };
+
   buttons = () => {
-    console.log("this.props.job");
-    console.log(this.props.job);
     if (this.props.job.user_id === localStorage.getItem('user_id')) {
       // this job belongs to the logged in user
       if (this.props.job.status === "posted") {
