@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import $ from 'jquery';
-import JobDetails from './JobDetails';
+import $ from "jquery";
+import JobDetails from "./JobDetails";
+import "./JobDetails.css";
 
 class JobDetailsPage extends Component {
   constructor() {
@@ -12,29 +13,31 @@ class JobDetailsPage extends Component {
   }
 
   componentDidMount() {
-    let token = "Bearer " + localStorage.getItem('id_token');
+    let token = "Bearer " + localStorage.getItem("id_token");
     let requestUrl = "http://localhost:3001/jobs/" + this.state.id;
 
     $.ajax({
       url: requestUrl,
       type: "GET",
-      beforeSend: function(xhr){xhr.setRequestHeader('Authorization', token)},
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", token);
+      },
       context: this,
-      success: (result) => {
+      success: result => {
         this.setState({
           job: result.job
         });
-        console.log('REQUEST COMPLETED');
+        console.log("REQUEST COMPLETED");
         console.log(result.job);
       }
-    })
-  };
+    });
+  }
 
   render() {
     return (
-      <div>
-        {console.log('RENDERED')}
-        <h1>Job Details</h1>
+      <div className="job-detail-header">
+        {console.log("RENDERED")}
+        Job Details
         <JobDetails job={this.state.job} />
       </div>
     );

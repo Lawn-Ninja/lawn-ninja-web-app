@@ -1,8 +1,13 @@
-.job-detail-info {
+.job-detail {
   width: 60%;
+}
+
+.job-detail-info {
   float: left;
   text-align: left;
   margin: 20px;
+  color: black;
+  font-size: 20px;
 }
 
 .job-detail-buttons {
@@ -11,4 +16,10 @@
 
 .clear {
   clear: both;
+}
+
+.job-detail-header {
+  font-size: 40px;
+  font-weight: bold;
+  color: green;
 }
