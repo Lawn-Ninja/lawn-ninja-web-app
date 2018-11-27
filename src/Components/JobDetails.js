@@ -97,7 +97,6 @@ class JobDetails extends Component {
 
     return (
       <div>
-        <h1 className="clear">Job Details</h1>
         <div className="job-detail-info">
           <h4>ID: {id}</h4>
           <h5>User ID: {user_id}</h5>
