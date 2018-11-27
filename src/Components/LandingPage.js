@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import NewJob from "./NewJob";
+// import NewJob from "./NewJob";
 
 import "../App.css";
 import "./LandingPage.css";
@@ -57,7 +57,9 @@ class landingPage extends Component {
           consumerButtons: (
             <div>
               <p>
-                <button>Post a Job</button>
+                <button>
+                  <Link to="/new_job" className="hover_link">Post a Job</Link>
+                </button>
               </p>
               <p>
                 <button onClick={this.toggleProviderStatus}>
@@ -104,15 +106,6 @@ class landingPage extends Component {
     } else {
       providerStatus = false;
     }
-<<<<<<< HEAD
-    var userId = localStorage.getItem('user_id');
-    var params = {"user": {"provider": providerStatus}}
-    axios.patch('http://localhost:3001/users/' + userId, params).then(response => {
-      localStorage.setItem('provider_status', response.data.user.provider);
-      this.buttons();
-    });
-  }
-=======
     var userId = localStorage.getItem("user_id");
     var params = { user: { provider: providerStatus } };
     axios
@@ -122,7 +115,6 @@ class landingPage extends Component {
         this.buttons();
       });
   };
->>>>>>> 9ce7b7be9fedcf533c36221be9a26ee5e849ab6b
 
   componentDidMount() {
     this.buttons();
@@ -131,7 +123,6 @@ class landingPage extends Component {
   render() {
     return (
       <div>
-        <NewJob />
         <p className="landing-page-info">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fermentum
           pellentesque magna, condimentum egestas risus porta vel. Sed a
