@@ -7,7 +7,7 @@ class JobDetailsPage extends Component {
     super();
     this.state = {
       job: {},
-      id: 3505
+      id: 3504
     };
   }
 

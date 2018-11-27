@@ -89,11 +89,12 @@ class JobDetails extends Component {
     }
   };
 
-  componentDidMount() {
-    this.buttons();
-    this.info();
-    console.log(this.state);
-  };
+  componentDidUpdate(prevProps) {
+    if (this.props.job !== prevProps.job) {
+      this.buttons();
+      this.info();
+    }
+  }
 
   render() {
     const { id, user_id, requested_time, status } = this.props.job;
