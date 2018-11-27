@@ -63,7 +63,7 @@ class Login extends Component {
       // <div className="card mb-3">
       <div className="form">
         <div className="form-header">Login</div>
-        <div className="form-body">
+        <div>
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
               label="Email"

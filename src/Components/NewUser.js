@@ -129,7 +129,7 @@ class NewUser extends Component {
     return (
       <div className="form">
         <div className="form-header">Sign Up</div>
-        <div className="form-body">
+        <div>
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
               label="Name"

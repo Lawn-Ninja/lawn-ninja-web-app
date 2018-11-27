@@ -25,7 +25,7 @@ class Logout extends Component {
     return (
       <div className="form">
         <div className="form-header">Logout</div>
-        <div className="form-body">
+        <div>
           <p>Are you sure you want to log out?</p>
           <input
             type="submit"
