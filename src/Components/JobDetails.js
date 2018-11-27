@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./JobDetails.css";
-import axios from 'axios';
+import axios from "axios";
 
 class JobDetails extends Component {
   constructor(props) {
@@ -16,110 +16,157 @@ class JobDetails extends Component {
   }
 
   deleteRequest = () => {
-    axios.delete("http://localhost:3001/jobs/" + this.props.job.id).then(response => {
-      console.log(response.data);
-    }) 
+    axios
+      .delete("http://localhost:3001/jobs/" + this.props.job.id)
+      .then(response => {
+        console.log(response.data);
+      });
   };
 
   claimJob = () => {
-    var provider_id = localStorage.getItem('user_id');
-    var params = {job: {provider_id: provider_id, status: "claimed"}};
-    axios.patch("http://localhost:3001/jobs/" + this.props.job.id, params).then(response => {
-      console.log(response.data);
-    })
+    var provider_id = localStorage.getItem("user_id");
+    var params = { job: { provider_id: provider_id, status: "claimed" } };
+    axios
+      .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
+      .then(response => {
+        console.log(response.data);
+      });
     this.buttons();
     this.info();
   };
 
   startJob = () => {
-    var params = {job: {start_time: Date(), status: "started"}};
-    axios.patch("http://localhost:3001/jobs/" + this.props.job.id, params).then(response => {
-      console.log(response.data);
-    })
+    var params = { job: { start_time: Date(), status: "started" } };
+    axios
+      .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
+      .then(response => {
+        console.log(response.data);
+      });
     this.buttons();
     this.info();
   };
 
   endJob = () => {
-    var params = {job: {end_time: Date(), status: "completed"}};
-    axios.patch("http://localhost:3001/jobs/" + this.props.job.id, params).then(response => {
-      console.log(response.data);
-    })
+    var params = { job: { end_time: Date(), status: "completed" } };
+    axios
+      .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
+      .then(response => {
+        console.log(response.data);
+      });
     this.buttons();
     this.info();
   };
 
   buttons = () => {
-    if (this.props.job.user_id === localStorage.getItem('user_id')) {
+    if (this.props.job.user_id === localStorage.getItem("user_id")) {
       // this job belongs to the logged in user
       if (this.props.job.status === "posted") {
-        this.setState({userButtons: (
-          <div>
-            <p><button onClick={this.deleteRequest}>Cancel Request</button></p>
-          </div>
-        )});
+        this.setState({
+          userButtons: (
+            <div>
+              <p>
+                <button onClick={this.deleteRequest}>Cancel Request</button>
+              </p>
+            </div>
+          )
+        });
       } else if (this.props.job.status === "claimed") {
-        
       } else if (this.props.job.status === "started") {
-
       } else if (this.props.job.status === "completed") {
-        this.setState({userButtons: (
-          <div>
-            <p><button>View Invoice</button></p>
-          </div>
-        )});
+        this.setState({
+          userButtons: (
+            <div>
+              <p>
+                <button>View Invoice</button>
+              </p>
+            </div>
+          )
+        });
       }
     } else {
       if (this.props.job.status === "posted") {
-        this.setState({providerButtons: (
-          <div>
-            <p><button onClick={this.claimJob}>Claim Job</button></p>
-          </div>
-        )});
+        this.setState({
+          providerButtons: (
+            <div>
+              <p>
+                <button onClick={this.claimJob}>Claim Job</button>
+              </p>
+            </div>
+          )
+        });
       } else if (this.props.job.status === "claimed") {
-        this.setState({providerButtons: (
-          <div>
-            <p><button onClick={this.startJob}>Start Job</button></p>
-          </div>
-        )});
+        this.setState({
+          providerButtons: (
+            <div>
+              <p>
+                <button onClick={this.startJob}>Start Job</button>
+              </p>
+            </div>
+          )
+        });
       } else if (this.props.job.status === "started") {
-        this.setState({providerButtons: (
-          <div>
-            <p><button onClick={this.endJob}>End Job</button></p>
-          </div>
-        )});
+        this.setState({
+          providerButtons: (
+            <div>
+              <p>
+                <button onClick={this.endJob}>End Job</button>
+              </p>
+            </div>
+          )
+        });
       } else if (this.props.job.status === "completed") {
-        this.setState({providerButtons: (
-          <div>
-            <p><button>View Invoice</button></p>
-          </div>
-        )});
+        this.setState({
+          providerButtons: (
+            <div>
+              <p>
+                <button>View Invoice</button>
+              </p>
+            </div>
+          )
+        });
       }
     }
   };
 
   info = () => {
-    if (this.props.job.status === "claimed" || this.props.job.status === "started" || this.props.job.status === "completed") {
-      this.setState({providerInfo: (
-        <div>
-          <h5>Provider ID: {this.props.job.provider_id}</h5>
-        </div>
-      )});
+    if (
+      this.props.job.status === "claimed" ||
+      this.props.job.status === "started" ||
+      this.props.job.status === "completed"
+    ) {
+      this.setState({
+        providerInfo: (
+          <div>
+            <h5>Provider ID: {this.props.job.provider_id}</h5>
+          </div>
+        )
+      });
     }
-    if (this.props.job.status === "started" || this.props.job.status === "completed") {
-      this.setState({startInfo: (
-        <div>
-          <p>Start Time: {this.props.job.start_time}</p>
-        </div>
-      )});
+    if (
+      this.props.job.status === "started" ||
+      this.props.job.status === "completed"
+    ) {
+      this.setState({
+        startInfo: (
+          <div>
+            <p>Start Time: {this.props.job.start_time}</p>
+          </div>
+        )
+      });
     }
     if (this.props.job.status === "completed") {
-      this.setState({endInfo: (
-        <div>
-          <p>End Time: {this.props.job.end_time}</p>
-        </div>
-      )});
+      this.setState({
+        endInfo: (
+          <div>
+            <p>End Time: {this.props.job.end_time}</p>
+          </div>
+        )
+      });
     }
+  };
+
+  cancelRequest = id => {
+    console.log(id);
   };
 
   componentDidUpdate(prevProps) {
