@@ -120,7 +120,7 @@ class landingPage extends Component {
   render() {
     return (
       <div>
-        <h4>Welcome to LawnNinja!</h4>
+        <p className="landing-page-header">Welcome to LawnNinja!</p>
         <div className="landing-page-info">
           <p>Lawn mowing made easy.</p>
           <ul>
