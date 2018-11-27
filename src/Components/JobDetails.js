@@ -15,7 +15,7 @@ class JobDetails extends Component {
     };
   }
 
-  deleteRequest = () => {
+  deleteRequest = id => {
     axios
       .delete("http://localhost:3001/jobs/" + this.props.job.id)
       .then(response => {
@@ -23,7 +23,7 @@ class JobDetails extends Component {
       });
   };
 
-  claimJob = () => {
+  claimJob = id => {
     var provider_id = localStorage.getItem("user_id");
     var params = { job: { provider_id: provider_id, status: "claimed" } };
     axios
@@ -35,7 +35,7 @@ class JobDetails extends Component {
     this.info();
   };
 
-  startJob = () => {
+  startJob = id => {
     var params = { job: { start_time: Date(), status: "started" } };
     axios
       .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
@@ -46,7 +46,7 @@ class JobDetails extends Component {
     this.info();
   };
 
-  endJob = () => {
+  endJob = id => {
     var params = { job: { end_time: Date(), status: "completed" } };
     axios
       .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
@@ -57,7 +57,7 @@ class JobDetails extends Component {
     this.info();
   };
 
-  buttons = () => {
+  buttons = id => {
     if (this.props.job.user_id === localStorage.getItem("user_id")) {
       // this job belongs to the logged in user
       if (this.props.job.status === "posted") {
@@ -65,7 +65,9 @@ class JobDetails extends Component {
           userButtons: (
             <div>
               <p>
-                <button onClick={this.deleteRequest}>Cancel Request</button>
+                <button onClick={this.deleteRequest.bind(this, id)}>
+                  Cancel Request
+                </button>
               </p>
             </div>
           )
@@ -89,7 +91,9 @@ class JobDetails extends Component {
           providerButtons: (
             <div>
               <p>
-                <button onClick={this.claimJob}>Claim Job</button>
+                <button onClick={this.claimJob.bind(this, id)}>
+                  Claim Job
+                </button>
               </p>
             </div>
           )
@@ -99,7 +103,9 @@ class JobDetails extends Component {
           providerButtons: (
             <div>
               <p>
-                <button onClick={this.startJob}>Start Job</button>
+                <button onClick={this.startJob.bind(this, id)}>
+                  Start Job
+                </button>
               </p>
             </div>
           )
@@ -109,7 +115,7 @@ class JobDetails extends Component {
           providerButtons: (
             <div>
               <p>
-                <button onClick={this.endJob}>End Job</button>
+                <button onClick={this.endJob.bind(this, id)}>End Job</button>
               </p>
             </div>
           )
@@ -163,10 +169,6 @@ class JobDetails extends Component {
         )
       });
     }
-  };
-
-  cancelRequest = id => {
-    console.log(id);
   };
 
   componentDidUpdate(prevProps) {
