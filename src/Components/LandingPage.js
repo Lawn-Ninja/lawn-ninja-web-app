@@ -61,7 +61,7 @@ class landingPage extends Component {
       providerStatus = false;
     }
     var userId = localStorage.getItem('user_id');
-    var params = {user: {provider: providerStatus}}
+    var params = {"user": {"provider": providerStatus}}
     axios.patch('http://localhost:3001/users/' + userId, params).then(response => {
       localStorage.setItem('provider_status', response.data.user.provider);
       this.buttons();

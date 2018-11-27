@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import JobsList from "./JobsList";
 import $ from 'jquery';
+// import JobDetails from './JobDetails';
 
 class MyJobs extends Component {
   constructor(props) {

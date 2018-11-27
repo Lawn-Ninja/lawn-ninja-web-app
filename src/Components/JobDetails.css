@@ -1,0 +1,14 @@
+.job-detail-info {
+  width: 60%;
+  float: left;
+  text-align: left;
+  margin: 20px;
+}
+
+.job-detail-buttons {
+  margin: 20px;
+}
+
+.clear {
+  clear: both;
+}
