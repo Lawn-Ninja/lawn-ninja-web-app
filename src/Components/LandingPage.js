@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+// import NewJob from "./NewJob";
 
 import "../App.css";
 import "./LandingPage.css";
@@ -56,7 +57,9 @@ class landingPage extends Component {
           consumerButtons: (
             <div>
               <p>
-                <button>Post a Job</button>
+                <button>
+                  <Link to="/new_job" className="hover_link">Post a Job</Link>
+                </button>
               </p>
               <p>
                 <button onClick={this.toggleProviderStatus}>
@@ -112,6 +115,7 @@ class landingPage extends Component {
         this.buttons();
       });
   };
+  
   componentDidMount() {
     this.buttons();
   }
