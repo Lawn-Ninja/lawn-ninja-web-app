@@ -9,6 +9,7 @@ class Job extends Component {
         <h4>User ID: {user_id}</h4>
         <p>Requested Time: {requested_time}</p>
         <p>Status: {status}</p>
+        <p><button>View Job</button></p>
       </div>
     );
   }
