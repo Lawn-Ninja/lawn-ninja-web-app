@@ -4,17 +4,16 @@ import JobDetails from "./JobDetails";
 import "./JobDetails.css";
 
 class JobDetailsPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      job: {},
-      id: 3500
+      job: {}
     };
   }
 
   componentDidMount() {
     let token = "Bearer " + localStorage.getItem("id_token");
-    let requestUrl = "http://localhost:3001/jobs/" + this.state.id;
+    let requestUrl = "http://localhost:3001/jobs/" + this.props.match.params.id;
 
     $.ajax({
       url: requestUrl,
