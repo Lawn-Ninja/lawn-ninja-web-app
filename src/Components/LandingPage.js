@@ -22,7 +22,7 @@ class landingPage extends Component {
         userButtons: (
           <div>
             <p>
-              <button>
+              <button className="btn btn-success">
                 <Link to="/my_jobs" className="hover_link">
                   My Jobs
                 </Link>
@@ -37,14 +37,17 @@ class landingPage extends Component {
           providerButtons: (
             <div>
               <p>
-                <button>
+                <button className="btn btn-success">
                   <Link to="/jobs" className="hover_link">
                     Jobs Near Me
                   </Link>
                 </button>
               </p>
               <p>
-                <button onClick={this.toggleProviderStatus}>
+                <button
+                  className="btn btn-success"
+                  onClick={this.toggleProviderStatus}
+                >
                   Become a Consumer
                 </button>
               </p>
@@ -57,12 +60,18 @@ class landingPage extends Component {
           consumerButtons: (
             <div>
               <p>
-                <button>
-                  <Link to="/new_job" className="hover_link">Post a Job</Link>
+                <button className="btn btn-success">
+                  <Link to="/new_job" className="hover_link">
+                    Post a Job
+                  </Link>
                 </button>
               </p>
               <p>
-                <button onClick={this.toggleProviderStatus}>
+                {/* <button onClick={this.toggleProviderStatus}> */}
+                <button
+                  className="btn btn-success"
+                  onClick={this.toggleProviderStatus}
+                >
                   Become a Provider
                 </button>
               </p>
@@ -76,21 +85,22 @@ class landingPage extends Component {
         userButtons: (
           <div>
             <p>
-              <button>
+              <button className="btn btn-success">
+                {/* <Link to="/login" className="hover_link"> */}
                 <Link to="/login" className="hover_link">
                   Log In
                 </Link>
               </button>
             </p>
             <p>
-              <button>
+              <button className="btn btn-success">
                 <Link to="/signup" className="hover_link">
                   Sign Up
                 </Link>
               </button>
             </p>
             <p>
-              <button>Pricing & Info</button>
+              <button className="btn btn-success">Pricing & Info</button>
             </p>
           </div>
         )
@@ -115,7 +125,7 @@ class landingPage extends Component {
         this.buttons();
       });
   };
-  
+
   componentDidMount() {
     this.buttons();
   }

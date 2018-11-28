@@ -83,7 +83,8 @@ class Login extends Component {
               onChange={this.onChange}
               error={errors.password}
             />
-            <input type="submit" value="Login" className="button" />
+            {/* <input type="submit" value="Login" className="button" /> */}
+            <button type="submit" className="btn btn-success">Login</button>
           </form>
         </div>
       </div>

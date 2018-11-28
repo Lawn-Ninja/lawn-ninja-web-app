@@ -27,12 +27,14 @@ class Logout extends Component {
         <div className="form-header">Logout</div>
         <div>
           <p>Are you sure you want to log out?</p>
-          <input
+          {/* <input
             type="submit"
             value="Logout"
             className="button"
             onClick={this.postLogoutHandler}
-          />
+          /> */}
+          <button type="submit" className="btn btn-success" onClick={this.postLogoutHandler}>Logout</button>
+          {console.log("logging out")}
         </div>
       </div>
     );

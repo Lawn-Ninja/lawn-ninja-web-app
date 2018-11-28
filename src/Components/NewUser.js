@@ -207,7 +207,8 @@ class NewUser extends Component {
               error={errors.password_confirmation}
             />
             <div>
-              <input type="submit" value="Create Account" className="button" />
+              {/* <input type="submit" value="Create Account" className="button" /> */}
+              <button type="submit" className="btn btn-success">Create Account</button>
             </div>
           </form>
         </div>

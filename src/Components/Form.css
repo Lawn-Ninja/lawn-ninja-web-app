@@ -10,17 +10,24 @@
   color: green;
 }
 
+
+.btn {
+  font-weight: bold;
+}
+
+
+/* depricated css */
+
 /* .form-body { */
 /* text-align: left; */
 /* font-weight: bold;
 } */
 
-.button {
+/* .button {
   display: inline-block;
   justify-content: center;
   width: auto;
   text-align: center;
   background-color: green;
   color: white;
-  font-weight: bold;
-}
+} */
