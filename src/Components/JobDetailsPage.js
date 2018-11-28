@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import JobDetails from "./JobDetails";
-<<<<<<< HEAD
 import "./JobDetails.css";
-=======
->>>>>>> 35a058b2ba9274a4af6550f591e5bd1595192225
 
 class JobDetailsPage extends Component {
   constructor() {
@@ -38,17 +35,10 @@ class JobDetailsPage extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div className="job-detail-header">
         {console.log("RENDERED")}
         Job Details
         <JobDetails job={this.state.job} />
-=======
-      <div>
-        {console.log("RENDERED")}
-        <h1>Job Details</h1>
-        <JobDetails key={this.state.job.id} job={this.state.job} />
->>>>>>> 35a058b2ba9274a4af6550f591e5bd1595192225
       </div>
     );
   }
