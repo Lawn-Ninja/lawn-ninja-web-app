@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import JobsList from "./JobsList";
 import $ from 'jquery';
-// import JobDetailsPage from './JobDetailsPage';
+import JobDetailsPage from './JobDetailsPage';
 
 class MyJobs extends Component {
   constructor(props) {
@@ -32,7 +32,8 @@ class MyJobs extends Component {
   render() {
     return (
       <div className="my-jobs">
-        <JobsList title={"Jobs Near Me"} jobs={this.state.jobs} />
+        {/* <JobsList title={"Jobs Near Me"} jobs={this.state.jobs} /> */}
+        <JobDetailsPage />
       </div>
     );
   }

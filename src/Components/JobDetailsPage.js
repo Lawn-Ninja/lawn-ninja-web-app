@@ -8,7 +8,7 @@ class JobDetailsPage extends Component {
     super();
     this.state = {
       job: {},
-      id: 3504
+      id: 3500
     };
   }
 
@@ -27,7 +27,6 @@ class JobDetailsPage extends Component {
         this.setState({
           job: result.job
         });
-        console.log("REQUEST COMPLETED");
         console.log(result.job);
       }
     });
@@ -36,7 +35,6 @@ class JobDetailsPage extends Component {
   render() {
     return (
       <div className="job-detail-header">
-        {console.log("RENDERED")}
         Job Details
         <JobDetails job={this.state.job} />
       </div>
