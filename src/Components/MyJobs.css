@@ -1,4 +1,25 @@
-.requested, .scheduled, .inProgress, .completed {
-    border-bottom-style: solid;
-    border-color: rgb(4, 67, 85);
+/* .requested,
+.scheduled,
+.inProgress,
+.completed {
+  border-bottom-style: solid;
+  border-color: rgb(4, 67, 85);
+} */
+
+.my-jobs {
+  display: inline-block;
+  width: 45%;
+}
+
+.my-jobs-body {
+  color: black;
+  font-size: 15px;
+}
+
+.my-jobs-header {
+  font-size: 30px;
+  color: green;
+  /* font-weight: bold; */
+  border-bottom-style: solid;
+  border-color: rgb(4, 67, 85);
 }

@@ -9,7 +9,6 @@ import NewUser from "../Components/NewUser";
 import Logout from "../Components/Logout";
 import JobsNearMe from "../Components/JobsNearMe";
 import MyJobs from "../Components/MyJobs";
-import NewJob from "../Components/NewJob";
 
 class Home extends Component {
   render() {
@@ -28,12 +27,12 @@ class Home extends Component {
               </li>
               <li>
                 <Link to="/login" className="hover_link">
-                  LogIn
+                  Login
                 </Link>
               </li>
               <li>
                 <Link to="/signup" className="hover_link">
-                  SignUp
+                  Sign Up
                 </Link>
               </li>
               <li>
@@ -50,7 +49,6 @@ class Home extends Component {
         <Route path="/logout" exact component={Logout} />
         <Route path="/jobs" exact component={JobsNearMe} />
         <Route path="/my_jobs" exact component={MyJobs} />
-        <Route path="/new_job" exact component={NewJob} />
       </div>
     );
   }

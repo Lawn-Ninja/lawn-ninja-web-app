@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
-import "../App.css";
 import "./Form.css";
 
 class NewUser extends Component {
@@ -130,7 +129,7 @@ class NewUser extends Component {
     return (
       <div className="form">
         <div className="form-header">Sign Up</div>
-        <div className="card-body">
+        <div>
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
               label="Name"
@@ -165,7 +164,7 @@ class NewUser extends Component {
               error={errors.state}
             />
             <TextInputGroup
-              label="ZipCode"
+              label="Zip Code"
               name="zip_code"
               placeholder="Enter Zip Code"
               value={zip_code}
@@ -173,7 +172,7 @@ class NewUser extends Component {
               error={errors.zip_code}
             />
             <TextInputGroup
-              label="PhoneNumber"
+              label="Phone Number"
               name="phone_number"
               placeholder="Enter Phone Number"
               value={phone_number}
@@ -199,7 +198,7 @@ class NewUser extends Component {
               error={errors.password}
             />
             <TextInputGroup
-              label="PasswordConfirmation"
+              label="Password Confirmation"
               name="password_confirmation"
               type="password"
               placeholder="Confirm Password"
@@ -207,7 +206,9 @@ class NewUser extends Component {
               onChange={this.onChange}
               error={errors.password_confirmation}
             />
-            <input type="submit" value="Create User" className="button" />
+            <div>
+              <input type="submit" value="Create Account" className="button" />
+            </div>
           </form>
         </div>
       </div>

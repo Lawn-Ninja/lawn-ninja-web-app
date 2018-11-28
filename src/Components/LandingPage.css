@@ -4,11 +4,18 @@
   text-align: left;
 }
 
-.button-options, .landing-page-info {
+.button-options,
+.landing-page-info {
   padding: 15px;
   margin: 10px;
 }
 
 .clear {
   clear: both;
+}
+
+.landing-page-header {
+  font-size: 40px;
+  font-weight: bold;
+  color: green;
 }
