@@ -151,7 +151,7 @@ class landingPage extends Component {
           </ul>
         </div>
         <div>
-        <span className="button-options">
+        <span>
           {this.state.userButtons}
           {this.state.providerButtons}
           {this.state.consumerButtons}

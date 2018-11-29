@@ -11,7 +11,11 @@ class Job extends Component {
         <h4>User ID: {user_id}</h4>
         <p>Requested Time: {requested_time}</p>
         <p>Status: {status}</p>
-        <p><button><Link to={`/jobs/${id}`} className="hover_link">View Job</Link></button></p>
+        <p>
+          <button className="btn btn-success">
+          <Link to={`/jobs/${id}`} className="hover_link">View Job</Link>
+          </button>
+        </p>
       </div>
     );
   }

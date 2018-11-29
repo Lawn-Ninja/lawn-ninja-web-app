@@ -65,7 +65,7 @@ class JobDetails extends Component {
           userButtons: (
             <div>
               <p>
-                <button onClick={this.deleteRequest.bind(this, id)}>
+                <button className="btn btn-success" onClick={this.deleteRequest.bind(this, id)}>
                   Cancel Request
                 </button>
               </p>
@@ -79,7 +79,7 @@ class JobDetails extends Component {
           userButtons: (
             <div>
               <p>
-                <button>View Invoice</button>
+                <button className="btn btn-success">View Invoice</button>
               </p>
             </div>
           )
@@ -91,7 +91,7 @@ class JobDetails extends Component {
           providerButtons: (
             <div>
               <p>
-                <button onClick={this.claimJob.bind(this, id)}>
+                <button className="btn btn-success" onClick={this.claimJob.bind(this, id)}>
                   Claim Job
                 </button>
               </p>
@@ -103,7 +103,7 @@ class JobDetails extends Component {
           providerButtons: (
             <div>
               <p>
-                <button onClick={this.startJob.bind(this, id)}>
+                <button className="btn btn-success" onClick={this.startJob.bind(this, id)}>
                   Start Job
                 </button>
               </p>
@@ -115,7 +115,7 @@ class JobDetails extends Component {
           providerButtons: (
             <div>
               <p>
-                <button onClick={this.endJob.bind(this, id)}>End Job</button>
+                <button className="btn btn-success" onClick={this.endJob.bind(this, id)}>End Job</button>
               </p>
             </div>
           )
@@ -125,7 +125,7 @@ class JobDetails extends Component {
           providerButtons: (
             <div>
               <p>
-                <button>View Invoice</button>
+                <button className="btn btn-success">View Invoice</button>
               </p>
             </div>
           )
@@ -192,7 +192,7 @@ class JobDetails extends Component {
           {this.state.startInfo}
           {this.state.endInfo}
         </div>
-        <div className="job-detail-buttons">
+        <div>
           {this.state.userButtons}
           {this.state.providerButtons}
         </div>
