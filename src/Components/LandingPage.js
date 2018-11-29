@@ -133,7 +133,7 @@ class landingPage extends Component {
   render() {
     return (
       <div className="container">
-        <img src="/Lawn-Ninja.png" className="image"></img>
+        <img src="/Lawn-Ninja.png" alt="logo" className="image"></img>
         <p className="landing-page-header">Welcome to LawnNinja!</p>
         <div className="landing-page-info">
           <p>Lawn mowing made easy.</p>
