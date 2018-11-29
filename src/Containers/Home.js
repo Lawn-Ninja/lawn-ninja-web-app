@@ -17,7 +17,7 @@ class Home extends Component {
       // <div class="container">
       <div>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         <Link to="/" class="navbar-brand">Lawn<span className="logo-accent">Ninja</span></Link>
@@ -25,7 +25,7 @@ class Home extends Component {
           <div class="navbar-nav align-items-end">
             <Link to="/login" class="nav-item nav-link active">Login</Link>
             <Link to="/signup" class="nav-item nav-link active">Signup</Link>
-            <Link to="/logout" class="nav-item nav-link active">Logout</Link>
+            <Link to="/logout" class="nav-item nav-link active">Logout <span class="sr-only">(current)</span></Link>
             {/* <a class="nav-item nav-link" href="#projects">Projects</a> */}
           </div>
           </div>
