@@ -17,18 +17,37 @@ class Home extends Component {
     return (
       // <div class="container">
       <div>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-          <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+          <button
+            className="navbar-toggler navbar-toggler-left"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
           </button>
-        <Link to="/" class="navbar-brand">Lawn<span className="logo-accent">Ninja</span></Link>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav align-items-end">
-            <Link to="/login" class="nav-item nav-link active">Login</Link>
-            <Link to="/signup" class="nav-item nav-link active">Signup</Link>
-            <Link to="/logout" class="nav-item nav-link active">Logout <span class="sr-only">(current)</span></Link>
-            {/* <a class="nav-item nav-link" href="#projects">Projects</a> */}
-          </div>
+          <Link to="/" className="navbar-brand">
+            Lawn<span className="logo-accent">Ninja</span>
+          </Link>
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="navbarNavAltMarkup"
+          >
+            <div className="navbar-nav align-items-end">
+              <Link to="/login" className="nav-item nav-link active">
+                Login
+              </Link>
+              <Link to="/signup" className="nav-item nav-link active">
+                Signup
+              </Link>
+              <Link to="/logout" className="nav-item nav-link active">
+                Logout <span className="sr-only">(current)</span>
+              </Link>
+              {/* <a class="nav-item nav-link" href="#projects">Projects</a> */}
+            </div>
           </div>
         </nav>
         <Route path="/" exact component={LandingPage} />
