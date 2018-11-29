@@ -34,7 +34,7 @@ class NewJob extends Component {
       success: result => {
         console.log("Job successfully posted!");
         console.log(result);
-        this.props.history.replace("/signup");
+        this.props.history.replace("/my_jobs");
       }
     });
 
@@ -72,7 +72,9 @@ class NewJob extends Component {
               onChange={this.onChange}
               error={errors.requested_time}
             />
-            <button type="submit" className="btn btn-success">Post Job</button>
+            <button type="submit" className="btn btn-success">
+              Post Job
+            </button>
           </form>
         </div>
       </div>
