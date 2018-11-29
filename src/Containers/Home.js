@@ -14,36 +14,22 @@ import JobDetailsPage from "../Components/JobDetailsPage";
 class Home extends Component {
   render() {
     return (
-      <div className="Home">
-        <div className="header">
-          <nav className="navbar">
-            <div className="logo">
-              Lawn<span>Ninja</span>
-            </div>
-            <ul>
-              <li>
-                <Link to="/" className="hover_link">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/login" className="hover_link">
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link to="/signup" className="hover_link">
-                  Sign Up
-                </Link>
-              </li>
-              <li>
-                <Link to="/logout" className="hover_link">
-                  Logout
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      // <div class="container">
+      <div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <Link to="/" class="navbar-brand">Lawn<span className="logo-accent">Ninja</span></Link>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav align-items-end">
+            <Link to="/login" class="nav-item nav-link active">Login</Link>
+            <Link to="/signup" class="nav-item nav-link active">Signup</Link>
+            <Link to="/logout" class="nav-item nav-link active">Logout</Link>
+            {/* <a class="nav-item nav-link" href="#projects">Projects</a> */}
+          </div>
+          </div>
+        </nav>
         <Route path="/" exact component={LandingPage} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={NewUser} />
@@ -52,8 +38,40 @@ class Home extends Component {
         <Route path="/my_jobs" exact component={MyJobs} />
         <Route path="/jobs/:id" exact component={JobDetailsPage} />
       </div>
+      // </div>
     );
   }
 }
 
 export default Home;
+
+// <div className="Home">
+//   <div className="header">
+//     <nav className="navbar">
+//       <div className="logo">
+//         Lawn<span>Ninja</span>
+//       </div>
+//       <ul>
+//         <li>
+//           <Link to="/" className="hover_link">
+//             Home
+//           </Link>
+//         </li>
+//         <li>
+//           <Link to="/login" className="hover_link">
+//             Login
+//           </Link>
+//         </li>
+//         <li>
+//           <Link to="/signup" className="hover_link">
+//             Sign Up
+//           </Link>
+//         </li>
+//         <li>
+//           <Link to="/logout" className="hover_link">
+//             Logout
+//           </Link>
+//         </li>
+//       </ul>
+//     </nav>
+//   </div>
