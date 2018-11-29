@@ -8,13 +8,12 @@
   font-size: 40px;
   font-weight: bold;
   color: green;
+  margin-top: 20px;
 }
 
-
-.btn {
-  font-weight: bold;
+.form-body {
+  margin-top: 10px;
 }
-
 
 /* depricated css */
 
@@ -30,4 +29,9 @@
   text-align: center;
   background-color: green;
   color: white;
+} */
+
+/* 
+.btn {
+  font-weight: bold;
 } */

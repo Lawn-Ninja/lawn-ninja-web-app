@@ -34,7 +34,7 @@ class JobDetailsPage extends Component {
   render() {
     return (
       <div className="job-detail-header">
-        Job Details
+        <p>Job Details</p>
         <JobDetails job={this.state.job} />
       </div>
     );

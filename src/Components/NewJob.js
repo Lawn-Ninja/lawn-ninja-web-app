@@ -60,19 +60,21 @@ class NewJob extends Component {
     return (
       <div className="form">
         <div className="form-header">Post a Job</div>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <DateTimePicker onChange={this.onChange} value={requested_time} />
-          <TextInputGroup
-            label="Requested Time"
-            name="requested_time"
-            type="datetime"
-            placeholder="Date Time"
-            value={requested_time}
-            onChange={this.onChange}
-            error={errors.requested_time}
-          />
-          <input type="submit" value="New Job" className="button" />
-        </form>
+        <div>
+          <form onSubmit={this.onSubmit.bind(this)}>
+            <DateTimePicker onChange={this.onChange} value={requested_time} />
+            <TextInputGroup
+              label="Requested Time"
+              name="requested_time"
+              type="datetime"
+              placeholder="Date Time"
+              value={requested_time}
+              onChange={this.onChange}
+              error={errors.requested_time}
+            />
+            <button type="submit" className="btn btn-success">Post Job</button>
+          </form>
+        </div>
       </div>
     );
   }

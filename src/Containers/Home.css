@@ -58,3 +58,7 @@ a:hover {
   transition: width 100ms ease-in-out 0s;
   width: 100%;
 }
+
+.logo-accent {
+  color: #2ecc71;
+}
