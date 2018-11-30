@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import axios from "axios";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Redirect } from "react-router-dom";
 
 import "./Home.css";
 import LandingPage from "../Components/LandingPage";
@@ -13,6 +13,18 @@ import JobDetailsPage from "../Components/JobDetailsPage";
 import NewJob from "../Components/NewJob";
 
 class Home extends Component {
+  state = {
+    redirectToReferrer: false
+  };
+
+  auth = () => {
+    if (localStorage.getItem("id_token") !== "undefined") {
+      this.setState(() => ({
+        redirectToReferrer: true
+      }));
+    }
+  };
+
   render() {
     return (
       // <div class="container">
