@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./JobDetails.css";
 import axios from "axios";
+import FriendlyTime from "./FriendlyTime";
 
 class JobDetails extends Component {
   constructor(props) {
@@ -155,7 +156,7 @@ class JobDetails extends Component {
       this.setState({
         startInfo: (
           <div>
-            <p>Start Time: {this.props.job.start_time}</p>
+            <p>Start Time: <FriendlyTime time={this.props.job.start_time} /></p>
           </div>
         )
       });
@@ -164,7 +165,7 @@ class JobDetails extends Component {
       this.setState({
         endInfo: (
           <div>
-            <p>End Time: {this.props.job.end_time}</p>
+            <p>End Time: <FriendlyTime time={this.props.job.end_time} /></p>
           </div>
         )
       });
@@ -186,7 +187,7 @@ class JobDetails extends Component {
         <div className="job-detail-info">
           <h4>ID: {id}</h4>
           <h5>User ID: {user_id}</h5>
-          <p>Requested Time: {requested_time}</p>
+          <p>Requested Time: <FriendlyTime time={requested_time} /></p>
           <p>Status: {status}</p>
           {this.state.providerInfo}
           {this.state.startInfo}
