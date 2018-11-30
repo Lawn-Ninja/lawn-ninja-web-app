@@ -23,7 +23,7 @@ class MyJobs extends Component {
       context: this, // Allows us to use this.setState inside success
       success: result => {
         this.setState({
-          jobs: result.jobs
+          jobs: result
         });
       }
     });
