@@ -3,8 +3,6 @@ import { withRouter } from "react-router-dom";
 import TextInputGroup from "./TextInputGroup";
 import axios from "axios";
 
-import "../App.css";
-import "../Containers/Home.css";
 import "./Form.css";
 
 class Login extends Component {
@@ -65,7 +63,7 @@ class Login extends Component {
       // <div className="card mb-3">
       <div className="form">
         <div className="form-header">Login</div>
-        <div className="card-body">
+        <div>
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
               label="Email"
@@ -85,7 +83,8 @@ class Login extends Component {
               onChange={this.onChange}
               error={errors.password}
             />
-            <input type="submit" value="Login" className="button" />
+            {/* <input type="submit" value="Login" className="button" /> */}
+            <button type="submit" className="btn btn-success">Login</button>
           </form>
         </div>
       </div>

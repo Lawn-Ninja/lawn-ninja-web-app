@@ -1,7 +1,5 @@
 .form {
-  /* position: absolute; */
-  width: 50%;
-  /* float: center; */
+  width: 40%;
   display: inline-block;
   text-align: center;
 }
@@ -10,16 +8,30 @@
   font-size: 40px;
   font-weight: bold;
   color: green;
+  margin-top: 20px;
 }
 
-.button {
-  /* padding: 15px;
-  margin: 10px; */
+.form-body {
+  margin-top: 10px;
+}
+
+/* depricated css */
+
+/* .form-body { */
+/* text-align: left; */
+/* font-weight: bold;
+} */
+
+/* .button {
+  display: inline-block;
+  justify-content: center;
+  width: auto;
+  text-align: center;
   background-color: green;
   color: white;
-  font-weight: bold;
-}
+} */
 
-.clear {
-  clear: both;
-}
+/* 
+.btn {
+  font-weight: bold;
+} */
