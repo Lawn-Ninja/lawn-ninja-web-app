@@ -145,7 +145,7 @@ class JobDetails extends Component {
       this.setState({
         providerInfo: (
           <div>
-            <h5>Provider ID: {this.props.job.provider_id}</h5>
+            <p>Provider: {this.props.job.provider_name}</p>
           </div>
         )
       });
@@ -181,18 +181,24 @@ class JobDetails extends Component {
   }
 
   render() {
-    const { id, user_id, requested_time, status } = this.props.job;
+    const { id, user_id, requested_time, status, user } = this.props.job;
 
     return (
       <div className="job-detail">
         <div className="job-detail-info">
-          <h4>ID: {id}</h4>
-          <h5>User ID: {user_id}</h5>
-          <p>Requested Time: <FriendlyTime time={requested_time} /></p>
-          <p>Status: {status}</p>
+          <div>
+            <p>Requested By: {this.props.job.user_name}</p>
+          </div>
+          <div>
+            <p>Requested Time: <FriendlyTime time={requested_time} /></p>
+          </div>
+          <div>
+            <p>Status: {status}</p>
+          </div>
           {this.state.providerInfo}
           {this.state.startInfo}
           {this.state.endInfo}
+          Job Number: {id}
         </div>
         <div>
           {this.state.userButtons}
