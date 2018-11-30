@@ -35,6 +35,8 @@ class NewUser extends Component {
       }
     });
 
+    this.props.history.replace("/login");
+
     const {
       name,
       email,
@@ -208,7 +210,9 @@ class NewUser extends Component {
             />
             <div>
               {/* <input type="submit" value="Create Account" className="button" /> */}
-              <button type="submit" className="btn btn-success">Create Account</button>
+              <button type="submit" className="btn btn-success">
+                Create Account
+              </button>
             </div>
           </form>
         </div>
