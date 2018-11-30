@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import "./JobDetails.css";
 import axios from "axios";
 
@@ -195,10 +196,11 @@ class JobDetails extends Component {
         <div>
           {this.state.userButtons}
           {this.state.providerButtons}
+          <button className="btn btn-success"><Link to="/my_jobs" className="hover_link">My Jobs</Link></button>
         </div>
       </div>
     );
   }
 }
 
-export default JobDetails;
+export default withRouter(JobDetails);
