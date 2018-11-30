@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./MyJobs.css";
+import FriendlyTime from "./FriendlyTime";
 
 class Job extends Component {
   render() {
@@ -9,7 +10,7 @@ class Job extends Component {
     return (
       <div>
         <p>Job Number: {id}</p>
-        <p>Requested Time: {requested_time}</p>
+        <p>Requested Time: <FriendlyTime time={requested_time} /></p>
         <p>Status: {status}</p>
         <p>
           <button className="btn btn-success">

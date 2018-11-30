@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import "./JobDetails.css";
 import axios from "axios";
+import FriendlyTime from "./FriendlyTime";
 
 class JobDetails extends Component {
   constructor(props) {
@@ -155,7 +157,7 @@ class JobDetails extends Component {
       this.setState({
         startInfo: (
           <div>
-            <p>Start Time: {this.props.job.start_time}</p>
+            <p>Start Time: <FriendlyTime time={this.props.job.start_time} /></p>
           </div>
         )
       });
@@ -164,7 +166,7 @@ class JobDetails extends Component {
       this.setState({
         endInfo: (
           <div>
-            <p>End Time: {this.props.job.end_time}</p>
+            <p>End Time: <FriendlyTime time={this.props.job.end_time} /></p>
           </div>
         )
       });
@@ -188,7 +190,7 @@ class JobDetails extends Component {
             <p>Requested By: {this.props.job.user_name}</p>
           </div>
           <div>
-            <p>Requested Time: {requested_time}</p>
+            <p>Requested Time: <FriendlyTime time={requested_time} /></p>
           </div>
           <div>
             <p>Status: {status}</p>
@@ -201,10 +203,11 @@ class JobDetails extends Component {
         <div>
           {this.state.userButtons}
           {this.state.providerButtons}
+          <button className="btn btn-success"><Link to="/my_jobs" className="hover_link">My Jobs</Link></button>
         </div>
       </div>
     );
   }
 }
 
-export default JobDetails;
+export default withRouter(JobDetails);
