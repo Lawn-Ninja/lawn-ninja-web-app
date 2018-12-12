@@ -11,7 +11,27 @@
 4) Terminal `npm start`
 
 
-# Other Info
+# Significant Technologies
+
+* React Router
+
+* Webpack
+
+* Babel
+
+* Bootstrap
+
+* ajax
+
+
+# Other Concepts
+
+* Local storage (browser caching)
+
+* ES6 (fat arrow functions, destructuring assignment)
+
+
+# Auto-generated React Info
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
