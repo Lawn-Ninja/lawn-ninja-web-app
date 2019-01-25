@@ -1,3 +1,38 @@
+# README
+
+## To run Lawn Ninja Web App
+
+1) Terminal: `git clone https://github.com/Lawn-Ninja/lawn-ninja-web-app.git && cd lawn-ninja-web-app`
+
+2) If you do not have node installed, you should [download it](https://nodejs.org/en/).
+
+3) Terminal: `npm install`
+
+4) Terminal `npm start`
+
+
+# Significant Technologies
+
+* React Router
+
+* Webpack
+
+* Babel
+
+* Bootstrap
+
+* ajax
+
+
+# Other Concepts
+
+* Local storage (browser caching)
+
+* ES6 (fat arrow functions, destructuring assignment)
+
+
+# Auto-generated React Info
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

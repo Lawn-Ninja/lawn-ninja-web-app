@@ -6,7 +6,7 @@ import "./Form.css";
 
 class Logout extends Component {
   postLogoutHandler = () => {
-    axios.delete("http://localhost:3001/logout").then(response => {
+    axios.delete("http://localhost:3001/consumer_logout").then(response => {
       console.log(response);
       console.log(response.data.jwt);
 
