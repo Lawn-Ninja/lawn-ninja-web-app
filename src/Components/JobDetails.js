@@ -8,7 +8,6 @@ class JobDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      consumerButtons: null,
       userButtons: null,
       providerInfo: null,
       startInfo: null,
