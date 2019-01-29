@@ -5,7 +5,7 @@ import axios from "axios";
 
 import "./Form.css";
 
-class NewUser extends Component {
+class NewConsumer extends Component {
   state = {
     name: "",
     email: "",
@@ -239,4 +239,4 @@ class NewUser extends Component {
   // }
 }
 
-export default NewUser;
+export default NewConsumer;
