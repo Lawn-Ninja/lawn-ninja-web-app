@@ -5,7 +5,7 @@ import { Route, Link } from "react-router-dom";
 import "./Home.css";
 import LandingPage from "../Components/LandingPage";
 import Login from "../Components/Login";
-import NewConsumer from "../Components/NewUser";
+import NewConsumer from "../Components/NewConsumer";
 import Logout from "../Components/Logout";
 import JobsNearMe from "../Components/JobsNearMe";
 import MyJobs from "../Components/MyJobs";
