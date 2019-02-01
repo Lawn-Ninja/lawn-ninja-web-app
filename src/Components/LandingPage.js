@@ -27,34 +27,16 @@ class landingPage extends Component {
                 </Link>
               </button>
             </p>
-          </div>
-        )
-      });
-
-      if (localStorage.getItem("provider_status") === "true") {
-        this.setState({
-          consumerButtons: (
-            <div>
-              <p>
+            <p>
                 <button className="btn btn-success">
                   <Link to="/new_job" className="hover_link">
                     Post a Job
                   </Link>
                 </button>
               </p>
-              <p>
-                {/* <button onClick={this.toggleProviderStatus}> */}
-                <button
-                  className="btn btn-success"
-                  onClick={this.toggleProviderStatus}
-                >
-                  Become a Provider
-                </button>
-              </p>
-            </div>
-          )
-        });
-      }
+          </div>
+        )
+      });
     } else {
       this.setState({
         userButtons: (
