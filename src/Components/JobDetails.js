@@ -19,12 +19,15 @@ class JobDetails extends Component {
     axios
       .delete("http://localhost:3001/jobs/" + this.props.job.id)
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
       });
   };
 
   buttons = id => {
-    if (this.props.job.user_id === localStorage.getItem("user_id")) {
+    console.log("in buttons method");
+    console.log(this.props.job.consumer_id);
+    console.log(localStorage.getItem("user_id"));
+    if (this.props.job.consumer_id == localStorage.getItem("user_id")) {
       // this job belongs to the logged in user
       if (this.props.job.status === "posted") {
         this.setState({

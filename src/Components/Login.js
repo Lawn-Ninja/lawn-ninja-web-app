@@ -27,7 +27,7 @@ class Login extends Component {
         console.log("in login request");
         localStorage.setItem("id_token", response.data.jwt);
         localStorage.setItem("provider_status", response.data.provider);
-        localStorage.setItem("user_id", response.data.user_id);
+        localStorage.setItem("user_id", response.data.consumer_id);
         this.props.history.replace("/");
         // console.log("this is after the token");
       });

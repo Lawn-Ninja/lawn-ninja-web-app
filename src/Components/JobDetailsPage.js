@@ -23,11 +23,11 @@ class JobDetailsPage extends Component {
       },
       context: this,
       success: result => {
-        console.log('just made a web request');
+        // console.log('just made a web request');
         this.setState({
           job: result
         });
-        console.log(result.job);
+        // console.log(result.job);
       }
     });
   }
