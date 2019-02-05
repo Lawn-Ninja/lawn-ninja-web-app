@@ -2,7 +2,7 @@ import React from "react";
 
 const FriendlyTime = (props) => {
   var time = new Date(props.time)
-  console.log(time);
+  // console.log(time);
   var minutes = time.getMinutes();
   if (minutes < 10) {
     minutes = "0" + minutes;
