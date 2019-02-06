@@ -23,7 +23,7 @@ class NewConsumer extends Component {
   onSubmit = event => {
     event.preventDefault();
     axios.post("http://localhost:3001/consumers", {
-      user: {
+      consumer: {
         first_name: this.state.first_name,
         last_name: this.state.last_name,
         email: this.state.email,
