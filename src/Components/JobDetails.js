@@ -8,8 +8,6 @@ class JobDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      providerButtons: null,
-      consumerButtons: null,
       userButtons: null,
       providerInfo: null,
       startInfo: null,
@@ -18,49 +16,19 @@ class JobDetails extends Component {
   }
 
   deleteRequest = id => {
+    console.log("in delete request")
     axios
       .delete("http://localhost:3001/jobs/" + this.props.job.id)
       .then(response => {
-        console.log(response.data);
+        this.props.history.replace("/my_jobs");
       });
-  };
-
-  claimJob = id => {
-    var provider_id = localStorage.getItem("user_id");
-    var params = { job: { provider_id: provider_id, status: "claimed" } };
-    axios
-      .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
-      .then(response => {
-        console.log(response.data);
-      });
-    this.buttons();
-    this.info();
-  };
-
-  startJob = id => {
-    var params = { job: { start_time: Date(), status: "started" } };
-    axios
-      .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
-      .then(response => {
-        console.log(response.data);
-      });
-    this.buttons();
-    this.info();
-  };
-
-  endJob = id => {
-    var params = { job: { end_time: Date(), status: "completed" } };
-    axios
-      .patch("http://localhost:3001/jobs/" + this.props.job.id, params)
-      .then(response => {
-        console.log(response.data);
-      });
-    this.buttons();
-    this.info();
   };
 
   buttons = id => {
-    if (this.props.job.user_id === localStorage.getItem("user_id")) {
+    // console.log("in buttons method");
+    // console.log(this.props.job.consumer_id);
+    // console.log(localStorage.getItem("user_id"));
+    if (this.props.job.consumer_id == localStorage.getItem("user_id")) {
       // this job belongs to the logged in user
       if (this.props.job.status === "posted") {
         this.setState({
@@ -79,52 +47,6 @@ class JobDetails extends Component {
       } else if (this.props.job.status === "completed") {
         this.setState({
           userButtons: (
-            <div>
-              <p>
-                <button className="btn btn-success">View Invoice</button>
-              </p>
-            </div>
-          )
-        });
-      }
-    } else {
-      if (this.props.job.status === "posted") {
-        this.setState({
-          providerButtons: (
-            <div>
-              <p>
-                <button className="btn btn-success" onClick={this.claimJob.bind(this, id)}>
-                  Claim Job
-                </button>
-              </p>
-            </div>
-          )
-        });
-      } else if (this.props.job.status === "claimed") {
-        this.setState({
-          providerButtons: (
-            <div>
-              <p>
-                <button className="btn btn-success" onClick={this.startJob.bind(this, id)}>
-                  Start Job
-                </button>
-              </p>
-            </div>
-          )
-        });
-      } else if (this.props.job.status === "started") {
-        this.setState({
-          providerButtons: (
-            <div>
-              <p>
-                <button className="btn btn-success" onClick={this.endJob.bind(this, id)}>End Job</button>
-              </p>
-            </div>
-          )
-        });
-      } else if (this.props.job.status === "completed") {
-        this.setState({
-          providerButtons: (
             <div>
               <p>
                 <button className="btn btn-success">View Invoice</button>
@@ -181,13 +103,13 @@ class JobDetails extends Component {
   }
 
   render() {
-    const { id, user_id, requested_time, status, user } = this.props.job;
+    const { id, requested_time, status } = this.props.job;
 
     return (
       <div className="job-detail">
         <div className="job-detail-info">
           <div>
-            <p>Requested By: {this.props.job.user_name}</p>
+            <p>Requested By: {this.props.job.consumer_name}</p>
           </div>
           <div>
             <p>Requested Time: <FriendlyTime time={requested_time} /></p>
@@ -202,7 +124,6 @@ class JobDetails extends Component {
         </div>
         <div>
           {this.state.userButtons}
-          {this.state.providerButtons}
           <button className="btn btn-success"><Link to="/my_jobs" className="hover_link">My Jobs</Link></button>
         </div>
       </div>

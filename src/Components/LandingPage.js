@@ -11,7 +11,6 @@ class landingPage extends Component {
     super();
     this.state = {
       userButtons: null,
-      providerButtons: null,
       consumerButtons: null
     };
   }
@@ -28,58 +27,16 @@ class landingPage extends Component {
                 </Link>
               </button>
             </p>
-          </div>
-        )
-      });
-
-      if (localStorage.getItem("provider_status") === "true") {
-        this.setState({
-          providerButtons: (
-            <div>
-              <p>
-                <button className="btn btn-success">
-                  <Link to="/jobs" className="hover_link">
-                    Jobs Near Me
-                  </Link>
-                </button>
-              </p>
-              <p>
-                <button
-                  className="btn btn-success"
-                  onClick={this.toggleProviderStatus}
-                >
-                  Become a Consumer
-                </button>
-              </p>
-            </div>
-          ),
-          consumerButtons: null
-        });
-      } else {
-        this.setState({
-          consumerButtons: (
-            <div>
-              <p>
+            <p>
                 <button className="btn btn-success">
                   <Link to="/new_job" className="hover_link">
                     Post a Job
                   </Link>
                 </button>
               </p>
-              <p>
-                {/* <button onClick={this.toggleProviderStatus}> */}
-                <button
-                  className="btn btn-success"
-                  onClick={this.toggleProviderStatus}
-                >
-                  Become a Provider
-                </button>
-              </p>
-            </div>
-          ),
-          providerButtons: null
-        });
-      }
+          </div>
+        )
+      });
     } else {
       this.setState({
         userButtons: (
@@ -108,24 +65,6 @@ class landingPage extends Component {
     }
   };
 
-  toggleProviderStatus = () => {
-    var providerStatus;
-
-    if (localStorage.getItem("provider_status") === "false") {
-      providerStatus = true;
-    } else {
-      providerStatus = false;
-    }
-    var userId = localStorage.getItem("user_id");
-    var params = { user: { provider: providerStatus } };
-    axios
-      .patch("http://localhost:3001/users/" + userId, params)
-      .then(response => {
-        localStorage.setItem("provider_status", response.data.user.provider);
-        this.buttons();
-      });
-  };
-
   componentDidMount() {
     this.buttons();
   }
@@ -151,12 +90,11 @@ class landingPage extends Component {
           </ul>
         </div>
         <div>
-        <span>
-          {this.state.userButtons}
-          {this.state.providerButtons}
-          {this.state.consumerButtons}
-        </span>
-        <footer className="clear" />
+          <span>
+            {this.state.userButtons}
+            {this.state.consumerButtons}
+          </span>
+          <footer className="clear" />
         </div>
       </div>
     );

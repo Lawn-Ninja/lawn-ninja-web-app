@@ -5,9 +5,10 @@ import axios from "axios";
 
 import "./Form.css";
 
-class NewUser extends Component {
+class NewConsumer extends Component {
   state = {
-    name: "",
+    first_name: "",
+    last_name: "",
     email: "",
     address: "",
     city: "",
@@ -21,9 +22,10 @@ class NewUser extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    axios.post("http://localhost:3001/users", {
-      user: {
-        name: this.state.name,
+    axios.post("http://localhost:3001/consumers", {
+      consumer: {
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
         email: this.state.email,
         address: this.state.address,
         city: this.state.address,
@@ -38,7 +40,8 @@ class NewUser extends Component {
     this.props.history.replace("/login");
 
     const {
-      name,
+      first_name,
+      last_name,
       email,
       address,
       city,
@@ -49,8 +52,13 @@ class NewUser extends Component {
       password_confirmation
     } = this.state;
 
-    if (name === "") {
-      this.setState({ errors: { name: "Name is required" } });
+    if (first_name === "") {
+      this.setState({ errors: { first_name: "First name is required" } });
+      return;
+    }
+
+    if (last_name === "") {
+      this.setState({ errors: { last_name: "Last name is required" } });
       return;
     }
 
@@ -99,7 +107,8 @@ class NewUser extends Component {
     // dispatch({ type: "CREATE_USER", payload: newUser });
 
     this.setState({
-      name: "",
+      first_name: "",
+      last_name: "",
       email: "",
       address: "",
       city: "",
@@ -116,7 +125,8 @@ class NewUser extends Component {
 
   render() {
     const {
-      name,
+      first_name,
+      last_name,
       email,
       address,
       city,
@@ -134,12 +144,20 @@ class NewUser extends Component {
         <div>
           <form onSubmit={this.onSubmit.bind(this)}>
             <TextInputGroup
-              label="Name"
-              name="name"
-              placeholder="Enter Name"
-              value={name}
+              label="First Name"
+              name="first_name"
+              placeholder="Enter First Name"
+              value={first_name}
               onChange={this.onChange}
-              error={errors.name}
+              error={errors.first_name}
+            />
+            <TextInputGroup
+              label="Last Name"
+              name="last_name"
+              placeholder="Enter Last Name"
+              value={last_name}
+              onChange={this.onChange}
+              error={errors.last_name}
             />
             <TextInputGroup
               label="Address"
@@ -221,22 +239,6 @@ class NewUser extends Component {
       // </Consumer>
     );
   }
-
-  // render() {
-  //   return (
-  //     <form onSubmit={this.handleSubmit}>
-  //       <label>
-  //         Name:
-  //         <input
-  //           type="text"
-  //           value={this.state.value}
-  //           onChange={this.handleChange}
-  //         />
-  //       </label>
-  //       <input type="submit" value="Submit" />
-  //     </form>
-  //   );
-  // }
 }
 
-export default NewUser;
+export default NewConsumer;
