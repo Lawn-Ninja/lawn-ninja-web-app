@@ -49,7 +49,7 @@ class JobDetails extends Component {
           userButtons: (
             <div>
               <p>
-                <button className="btn btn-success">View Invoice</button>
+                <button className="btn btn-success"><Link to={`/jobs/${this.props.job.id}/invoice`} className="hover_link">View Invoice</Link></button>
               </p>
             </div>
           )
